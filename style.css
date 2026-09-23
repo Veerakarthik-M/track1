@@ -77,7 +77,7 @@ button{cursor:pointer;font-family:var(--font);}
    SCREEN 1: LANGUAGE SELECT
 ═══════════════════════════════════════════════ */
 #screenLang{
-  background: linear-gradient(160deg, #0f2027 0%, #1a3a2a 50%, #0f2027 100%);
+  background: transparent; /* Let the body bg (white/blue + watermark) show through */
   align-items:center;
   justify-content:center;
   padding:2rem 1.5rem;
@@ -96,18 +96,20 @@ button{cursor:pointer;font-family:var(--font);}
 .brand-icon{font-size:3.5rem;margin-bottom:.5rem;}
 .brand-name{
   font-size:2.2rem;font-weight:800;
-  color:#ffffff;
+  color:var(--blue); /* KSRTC Blue */
   letter-spacing:-.03em;
 }
 .brand-tagline{
-  font-size:.82rem;color:rgba(255,255,255,.6);
+  font-size:.82rem;color:var(--text2);
   margin-top:.3rem;letter-spacing:.04em;
   text-transform:uppercase;
+  font-weight: 600;
 }
 
 .lang-select-label{
-  font-size:.85rem;color:rgba(255,255,255,.7);
+  font-size:.85rem;color:var(--text2);
   text-align:center;line-height:1.6;
+  font-weight: 500;
 }
 
 .lang-options{display:flex;flex-direction:column;gap:.75rem;width:100%;}
@@ -115,26 +117,28 @@ button{cursor:pointer;font-family:var(--font);}
 .lang-option{
   display:flex;align-items:center;gap:1rem;
   padding:1.1rem 1.25rem;
-  background:rgba(255,255,255,.08);
-  border:1.5px solid rgba(255,255,255,.15);
+  background:var(--surface);
+  border:1.5px solid var(--border);
   border-radius:var(--radius);
-  color:#fff;
+  color:var(--text1);
   transition:var(--transition);
   text-align:left;
   width:100%;
+  box-shadow:var(--shadow-sm);
 }
 .lang-option:hover,.lang-option:focus{
-  background:rgba(255,255,255,.16);
-  border-color:rgba(255,255,255,.4);
+  background:var(--surface2);
+  border-color:var(--accent);
   transform:translateY(-1px);
 }
 .lang-flag{font-size:1.6rem;flex-shrink:0;}
-.lang-opt-name{font-size:.78rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.05em;}
-.lang-opt-native{font-size:1.2rem;font-weight:600;display:block;margin-top:.1rem;}
+.lang-opt-name{font-size:.78rem;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
+.lang-opt-native{font-size:1.2rem;font-weight:700;display:block;margin-top:.1rem;color:var(--accent);}
 
 .offline-note{
-  font-size:.75rem;color:rgba(255,255,255,.5);
+  font-size:.75rem;color:var(--text3);
   text-align:center;
+  font-weight: 500;
 }
 
 /* ═══════════════════════════════════════════════
