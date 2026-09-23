@@ -981,14 +981,39 @@ const UI = (() => {
       const q = input.value.trim().toLowerCase();
       drop.innerHTML = '';
       if (q.length < 1) { drop.classList.remove('open'); return; }
-      const matches = DataLayer.getAllStops()
-        .filter(s => [s.en, s.ml, s.hi, s.id].some(n => n && n.toLowerCase().includes(q)))
-        .slice(0, 8);
+      
+      const matchedIds = new Set();
+      const results = [];
+      
+      // Match stops directly
+      DataLayer.getAllStops().forEach(s => {
+        if ([s.en, s.ml, s.hi, s.id].some(n => n && n.toLowerCase().includes(q))) {
+          matchedIds.add(s.id);
+          results.push({ s, alias: null });
+        }
+      });
+      
+      // Match aliases
+      DataLayer.getAllAliases().forEach(a => {
+        if (a.alias.toLowerCase().includes(q) && !matchedIds.has(a.stop_id)) {
+          const s = DataLayer.getStop(a.stop_id);
+          if (s) {
+            matchedIds.add(s.id);
+            results.push({ s, alias: a.alias });
+          }
+        }
+      });
+      
+      const matches = results.slice(0, 8);
+      
       if (!matches.length) { drop.classList.remove('open'); return; }
-      for (const s of matches) {
+      for (const { s, alias } of matches) {
         const item = document.createElement('div');
         item.className = 'dd-item';
-        const nameText = lang === 'en' && s.ml ? `${s[lang] || s.en} <span style="color:#6b7280;font-size:.85rem;">(${s.ml})</span>` : (s[lang] || s.en);
+        let nameText = lang === 'en' && s.ml ? `${s[lang] || s.en} <span style="color:#6b7280;font-size:.85rem;">(${s.ml})</span>` : (s[lang] || s.en);
+        if (alias) {
+          nameText += ` <span style="font-size:0.75rem; color:#1864ab; background:#e0f2fe; padding:2px 6px; border-radius:4px; margin-left:4px;">aka ${alias}</span>`;
+        }
         item.innerHTML = `<span class="dd-name">${nameText}</span><span class="dd-sub">${s.landmark ? (s.landmark[lang] || s.landmark.en) : ''}</span>`;
         item.addEventListener('mousedown', e => {
           e.preventDefault();

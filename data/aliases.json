@@ -41,6 +41,8 @@
     { "alias": "कोच्चि", "stop_id": "ernakulam_ksrtc", "lang": "hi" },
     { "alias": "एर्नाकुलम", "stop_id": "ernakulam_ksrtc", "lang": "hi" },
     { "alias": "अलुवा", "stop_id": "aluva", "lang": "hi" },
-    { "alias": "कोट्टायम", "stop_id": "kottayam", "lang": "hi" }
+    { "alias": "कोट्टायम", "stop_id": "kottayam", "lang": "hi" },
+    { "alias": "water metro", "stop_id": "vytilla", "lang": "en" },
+    { "alias": "watermetro", "stop_id": "vytilla", "lang": "en" }
   ]
 }
