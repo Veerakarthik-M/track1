@@ -1652,20 +1652,7 @@ const UI = (() => {
       $('largeTxtBtn').classList.toggle('active');
     });
 
-    // Dark/Light mode toggle
-    const themeBtn = $('themeToggleBtn');
-    const applyTheme = (dark) => {
-      document.body.classList.toggle('dark-mode', dark);
-      if (themeBtn) themeBtn.textContent = dark ? '☀️' : '🌙';
-      localStorage.setItem('anavandi-dark', dark ? '1' : '0');
-    };
-    // Restore saved preference or respect system setting
-    const savedDark = localStorage.getItem('anavandi-dark');
-    const prefersDark = savedDark !== null 
-      ? savedDark === '1'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark);
-    themeBtn?.addEventListener('click', () => applyTheme(!document.body.classList.contains('dark-mode')));
+    // Dark/Light mode removed for branding
 
     // GPS
     $('gpsBtn').addEventListener('click', handleGPS);

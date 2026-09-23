@@ -5,59 +5,52 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
-/* ─── Variables ────────────────────────────────────────────── */
+/* ─── Variables (White & Blue KSRTC Theme) ────────────────────────────────────────────── */
 :root {
-  --bg: #f4f5f7;
+  --bg: #f0f4f8; /* Soft blue-tinted light background */
   --surface: #ffffff;
-  --surface2: #eef0f4;
-  --border: #dde2ea;
-  --text1: #111827;
-  --text2: #4b5563;
-  --text3: #9ca3af;
-  --accent: #166534;
-  --accent-bg: #dcfce7;
-  --accent-hover: #14532d;
-  --green: #16a34a;
-  --red: #dc2626;
-  --red-bg: #fee2e2;
-  --amber: #d97706;
-  --amber-bg: #fef3c7;
-  --blue: #2563eb;
-  --blue-bg: #eff6ff;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-  --shadow: 0 4px 16px rgba(0,0,0,.10);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,.14);
+  --surface2: #e0eaf5; /* KSRTC light blue */
+  --border: #cddbec;
+  --text1: #102a43; /* Deep navy text */
+  --text2: #334e68;
+  --text3: #829ab1;
+  --accent: #1864ab; /* KSRTC Deep Blue */
+  --accent-bg: #d9e8f5;
+  --accent-hover: #1971c2;
+  --green: #2f9e44;
+  --red: #e03131; /* KSRTC Red */
+  --red-bg: #ffe3e3;
+  --amber: #f59f00;
+  --amber-bg: #ffec99;
+  --blue: #1864ab;
+  --blue-bg: #d9e8f5;
+  --shadow-sm: 0 1px 3px rgba(16,42,67,.08);
+  --shadow: 0 4px 16px rgba(16,42,67,.12);
+  --shadow-lg: 0 8px 32px rgba(16,42,67,.16);
   --radius: 16px;
   --radius-sm: 10px;
   --transition: 0.2s ease;
   --font: 'Inter', 'Noto Sans Malayalam', 'Noto Sans Devanagari', sans-serif;
 }
 
-/* ─── Dark Mode ────────────────────────────────────────────── */
-body.dark-mode {
-  --bg: #0f1117;
-  --surface: #1a1d27;
-  --surface2: #242736;
-  --border: #2e3347;
-  --text1: #f0f2f5;
-  --text2: #a0aab8;
-  --text3: #5a6275;
-  --accent: #22c55e;
-  --accent-bg: #14321e;
-  --accent-hover: #16a34a;
-  --green: #22c55e;
-  --red: #f87171;
-  --red-bg: #2d1515;
-  --amber: #fbbf24;
-  --amber-bg: #2d200a;
-  --blue: #60a5fa;
-  --blue-bg: #0d1a30;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.30);
-  --shadow: 0 4px 16px rgba(0,0,0,.40);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,.50);
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  background-image: url('assets/bg.jpg');
+  background-size: 300px; /* Size of the bus pattern tile */
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: var(--text1);
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Smooth theme transition */
+/* We removed dark mode entirely to maintain the crisp white/blue/red KSRTC branding */
 *, *::before, *::after {
   transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
