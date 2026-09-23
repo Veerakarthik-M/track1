@@ -1,0 +1,84 @@
+{
+  "_note": "Kerala KSRTC fare stage system. Base ₹7 for 1 stage, +₹3 per additional stage. Fare is always an ESTIMATE.",
+  "_base_fare": 7,
+  "_per_stage": 3,
+  "stage_matrix": {
+    "EKM_42C": {
+      "vytilla-edapally": { "stages": 3, "fare_min": 13, "fare_max": 15 },
+      "vytilla-kalamassery": { "stages": 5, "fare_min": 19, "fare_max": 23 },
+      "vytilla-aluva": { "stages": 7, "fare_min": 25, "fare_max": 30 },
+      "edapally-kalamassery": { "stages": 2, "fare_min": 10, "fare_max": 12 },
+      "edapally-aluva": { "stages": 4, "fare_min": 16, "fare_max": 20 },
+      "kalamassery-aluva": { "stages": 3, "fare_min": 13, "fare_max": 15 }
+    },
+    "EKM_55A": {
+      "ernakulam_south-ernakulam_north": { "stages": 1, "fare_min": 7, "fare_max": 8 },
+      "ernakulam_south-edapally": { "stages": 4, "fare_min": 16, "fare_max": 20 },
+      "ernakulam_south-kalamassery": { "stages": 6, "fare_min": 22, "fare_max": 26 },
+      "ernakulam_south-aluva": { "stages": 8, "fare_min": 28, "fare_max": 34 },
+      "ernakulam_north-aluva": { "stages": 7, "fare_min": 25, "fare_max": 30 },
+      "edapally-kalamassery": { "stages": 2, "fare_min": 10, "fare_max": 12 },
+      "edapally-aluva": { "stages": 4, "fare_min": 16, "fare_max": 20 },
+      "kalamassery-aluva": { "stages": 3, "fare_min": 13, "fare_max": 15 }
+    },
+    "EKM_18B": {
+      "ernakulam_south-angamaly": { "stages": 11, "fare_min": 37, "fare_max": 44 },
+      "aluva-angamaly": { "stages": 3, "fare_min": 13, "fare_max": 15 }
+    },
+    "EKM_77": {
+      "ernakulam_south-thrissur": { "stages": 25, "fare_min": 79, "fare_max": 90 },
+      "ernakulam_south-angamaly": { "stages": 11, "fare_min": 37, "fare_max": 44 },
+      "aluva-thrissur": { "stages": 17, "fare_min": 55, "fare_max": 65 },
+      "chalakudy-thrissur": { "stages": 8, "fare_min": 28, "fare_max": 34 }
+    },
+    "EKM_21": {
+      "vytilla-kakkanad": { "stages": 4, "fare_min": 16, "fare_max": 20 }
+    },
+    "EKM_33": {
+      "ernakulam_south-tripunithura": { "stages": 3, "fare_min": 13, "fare_max": 15 }
+    },
+    "EKM_90": {
+      "aluva-kochi_airport": { "stages": 6, "fare_min": 22, "fare_max": 26 },
+      "angamaly-kochi_airport": { "stages": 3, "fare_min": 13, "fare_max": 15 }
+    },
+    "EKM_12": {
+      "ernakulam_south-tripunithura": { "stages": 3, "fare_min": 13, "fare_max": 15 },
+      "ernakulam_south-muvattupuzha": { "stages": 14, "fare_min": 46, "fare_max": 55 },
+      "tripunithura-muvattupuzha": { "stages": 11, "fare_min": 37, "fare_max": 44 }
+    },
+    "EKM_60": {
+      "aluva-perumbavoor": { "stages": 6, "fare_min": 22, "fare_max": 26 }
+    },
+    "EKM_R001": {
+      "ernakulam_ksrtc-vytilla": { "stages": 2, "fare_min": 10, "fare_max": 12 },
+      "ernakulam_ksrtc-aroor": { "stages": 6, "fare_min": 22, "fare_max": 26 },
+      "ernakulam_ksrtc-cherthala": { "stages": 11, "fare_min": 37, "fare_max": 44 },
+      "ernakulam_ksrtc-alappuzha": { "stages": 18, "fare_min": 61, "fare_max": 70 },
+      "vytilla-aroor": { "stages": 4, "fare_min": 16, "fare_max": 20 },
+      "vytilla-cherthala": { "stages": 9, "fare_min": 31, "fare_max": 37 },
+      "vytilla-alappuzha": { "stages": 16, "fare_min": 52, "fare_max": 62 },
+      "aroor-cherthala": { "stages": 5, "fare_min": 19, "fare_max": 23 },
+      "aroor-alappuzha": { "stages": 12, "fare_min": 43, "fare_max": 50 },
+      "cherthala-alappuzha": { "stages": 7, "fare_min": 25, "fare_max": 30 }
+    },
+    "EKM_R002": {
+      "ernakulam_south-kottayam": { "stages": 21, "fare_min": 67, "fare_max": 78 },
+      "ernakulam_south-alappuzha": { "stages": 33, "fare_min": 106, "fare_max": 120 },
+      "kottayam-alappuzha": { "stages": 12, "fare_min": 43, "fare_max": 50 },
+      "muvattupuzha-kottayam": { "stages": 7, "fare_min": 25, "fare_max": 30 }
+    },
+    "EKM_R003": {
+      "vytilla-aroor": { "stages": 4, "fare_min": 16, "fare_max": 20 },
+      "vytilla-cherthala": { "stages": 9, "fare_min": 31, "fare_max": 37 },
+      "aroor-cherthala": { "stages": 5, "fare_min": 19, "fare_max": 23 }
+    },
+    "EKM_R004": {
+      "cherthala-alappuzha": { "stages": 7, "fare_min": 25, "fare_max": 30 }
+    },
+    "EKM_R005": {
+      "ernakulam_ksrtc-kottayam": { "stages": 21, "fare_min": 67, "fare_max": 78 },
+      "ernakulam_ksrtc-muvattupuzha": { "stages": 14, "fare_min": 46, "fare_max": 55 },
+      "tripunithura-kottayam": { "stages": 18, "fare_min": 61, "fare_max": 70 }
+    }
+  }
+}

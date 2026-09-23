@@ -1,0 +1,15 @@
+route_id,bus_number,route_name_en,type,operator,frequency_mins
+EKM_42C,42C,Vytilla – Aluva Express,City,KSRTC,15
+EKM_55A,55A,Ernakulam South – Aluva Fast,Fast,KSRTC,20
+EKM_18B,18B,Ernakulam South – Angamaly,Ordinary,KSRTC,30
+EKM_77,77,Ernakulam South – Thrissur,Super Fast,KSRTC,45
+EKM_21,21,Vytilla – Kakkanad,City,City Bus,20
+EKM_33,33,Ernakulam South – Tripunithura,Ordinary,KSRTC,25
+EKM_90,90,Aluva – Kochi Airport,Airport,KSRTC,30
+EKM_12,12,Ernakulam South – Muvattupuzha,Ordinary,KSRTC,35
+EKM_60,60,Aluva – Perumbavoor,Ordinary,KSRTC,30
+EKM_R001,R001,Ernakulam KSRTC – Alappuzha Direct,Super Fast,KSRTC,30
+EKM_R002,R002,Ernakulam South – Alappuzha via Kottayam,Fast,KSRTC,45
+EKM_R003,R003,Vytilla – Cherthala Local,Ordinary,KSRTC,35
+EKM_R004,R004,Cherthala – Alappuzha,Ordinary,KSRTC,20
+EKM_R005,R005,Ernakulam KSRTC – Kottayam,Fast,KSRTC,30

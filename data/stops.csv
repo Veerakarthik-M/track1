@@ -1,0 +1,22 @@
+stop_id,stop_name_en,stop_name_ml,stop_name_hi,latitude,longitude,landmark_en
+ernakulam_south,Ernakulam South,എറണാകുളം സൗത്ത്,एर्नाकुलम साउथ,9.9816,76.2999,Near South Railway Station
+ernakulam_north,Ernakulam North,എറണാകുളം നോർത്ത്,एर्नाकुलम नॉर्थ,9.9981,76.2998,Near North Railway Station
+ernakulam_ksrtc,Ernakulam KSRTC Bus Station,എറണാകുളം കെഎസ്ആർടിസി,एर्नाकुलम KSRTC बस स्टेशन,9.9889,76.2950,Main KSRTC Depot
+vytilla,Vytilla,വൈറ്റില,वायतिल्ला,9.9605,76.3090,Vytilla Mobility Hub
+edapally,Edapally,എടപ്പള്ളി,एदापल्ली,10.0209,76.3080,Edapally Junction
+kalamassery,Kalamassery,കളമശ്ശേരി,कलमस्सेरी,10.0542,76.3255,Kalamassery Medical College
+aluva,Aluva,ആലുവ,अलुवा,10.1009,76.3569,Aluva KSRTC Bus Stand
+perumbavoor,Perumbavoor,പെരുമ്പാവൂർ,पेरुम्बावूर,10.1071,76.4688,Perumbavoor Town Centre
+angamaly,Angamaly,അങ്കമാലി,अंगमाली,10.1952,76.3869,Angamaly Junction
+thrissur,Thrissur,തൃശ്ശൂർ,त्रिशूर,10.5276,76.2144,Thrissur Round
+chalakudy,Chalakudy,ചാലക്കുടി,चालक्कुडी,10.3006,76.3318,Chalakudy Bus Stand
+kakkanad,Kakkanad,കക്കനാട്,काक्कनाड,10.0108,76.3488,Infopark Junction
+tripunithura,Tripunithura,തൃപ്പൂണിത്തുറ,त्रिपुनिथुरा,9.9450,76.3514,Hill Palace
+muvattupuzha,Muvattupuzha,മൂവാറ്റുപ്പുഴ,मुवातुपुझा,9.9852,76.5798,Muvattupuzha Bus Stand
+kothamangalam,Kothamangalam,കോതമംഗലം,कोथमंगलम,10.0602,76.6291,Kothamangalam Town
+kochi_airport,Kochi Airport,കൊച്ചി വിമാനത്താവളം,कोच्चि हवाई अड्डा,10.1520,76.3919,Cochin International Airport
+aroor,Aroor,ആറൂർ,आरूर,9.8701,76.3201,Aroor Junction
+cherthala,Cherthala,ചേർത്തല,चेर्थला,9.6847,76.3359,Cherthala Town
+alappuzha,Alappuzha,ആലപ്പുഴ,अलप्पुझा,9.4981,76.3388,Alappuzha KSRTC Bus Station
+kottayam,Kottayam,കോട്ടയം,कोट्टायम,9.5916,76.5222,Kottayam Bus Stand
+changanacherry,Changanacherry,ചങ്ങനാശ്ശേരി,चांगनाचेरी,9.4457,76.5391,Changanacherry Town

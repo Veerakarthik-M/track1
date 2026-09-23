@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "n9310588330",
+    "name": "Ravipuram",
+    "lat": 9.9589375,
+    "lon": 76.2888131
+  },
+  {
+    "id": "n9322967980",
+    "name": "Cochin Shipyard Main Gate",
+    "lat": 9.9571271,
+    "lon": 76.2898315
+  },
+  {
+    "id": "n9309110535",
+    "name": "Janatha",
+    "lat": 10.0014314,
+    "lon": 76.3025111
+  },
+  {
+    "id": "n7131609340",
+    "name": "Gandhi Square",
+    "lat": 9.9676405,
+    "lon": 76.2808781
+  },
+  {
+    "id": "n9259132617",
+    "name": "Subash Park",
+    "lat": 9.9697156,
+    "lon": 76.2806522
+  },
+  {
+    "id": "n3996656188",
+    "name": "Thevara",
+    "lat": 9.950119,
+    "lon": 76.2920811
+  },
+  {
+    "id": "n7131609339",
+    "name": "Pallimukk",
+    "lat": 9.9638534,
+    "lon": 76.2860633
+  },
+  {
+    "id": "n8463147703",
+    "name": "Kaloor Stadium",
+    "lat": 10.0005568,
+    "lon": 76.2995932
+  },
+  {
+    "id": "n8463147706",
+    "name": "Mathrubhoomi",
+    "lat": 9.9968296,
+    "lon": 76.2946944
+  },
+  {
+    "id": "n8514370957",
+    "name": "Atlantis",
+    "lat": 9.9557013,
+    "lon": 76.2920414
+  },
+  {
+    "id": "n9265640217",
+    "name": "Children's Park",
+    "lat": 9.973937,
+    "lon": 76.2790886
+  },
+  {
+    "id": "n9182595066",
+    "name": "Deshabhimani",
+    "lat": 9.9994106,
+    "lon": 76.2977583
+  },
+  {
+    "id": "n5757830543",
+    "name": "Pipeline Junction",
+    "lat": 10.0045621,
+    "lon": 76.3132997
+  },
+  {
+    "id": "n8463147714",
+    "name": "Manapattyparambu",
+    "lat": 9.9922732,
+    "lon": 76.2895309
+  },
+  {
+    "id": "n9333852887",
+    "name": "Kakkanad",
+    "lat": 10.0209145,
+    "lon": 76.3434277
+  },
+  {
+    "id": "n4471324994",
+    "name": "Mavelipuram Junction",
+    "lat": 10.0226946,
+    "lon": 76.3412911
+  },
+  {
+    "id": "n8463147716",
+    "name": "Town Hall",
+    "lat": 9.9914529,
+    "lon": 76.2885943
+  },
+  {
+    "id": "n2712142797",
+    "name": "Menaka",
+    "lat": 9.9780238,
+    "lon": 76.2770264
+  },
+  {
+    "id": "n3886536252",
+    "name": "High Court Junction",
+    "lat": 9.9834606,
+    "lon": 76.2742889
+  },
+  {
+    "id": "n5240431892",
+    "name": "Menaka",
+    "lat": 9.9776802,
+    "lon": 76.2769397
+  },
+  {
+    "id": "n8463175618",
+    "name": "North Railway Station",
+    "lat": 9.9883486,
+    "lon": 76.2860939
+  },
+  {
+    "id": "n8463175621",
+    "name": "High Court Junction",
+    "lat": 9.9828111,
+    "lon": 76.2743231
+  },
+  {
+    "id": "n8494116528",
+    "name": "Airport",
+    "lat": 9.936565,
+    "lon": 76.2766891
+  },
+  {
+    "id": "n8498641053",
+    "name": "Thevara Junction",
+    "lat": 9.9485711,
+    "lon": 76.2912027
+  },
+  {
+    "id": "n2780838959",
+    "name": "Kaloor",
+    "lat": 9.9941308,
+    "lon": 76.291962
+  },
+  {
+    "id": "n4753199419",
+    "name": "St Theresas College",
+    "lat": 9.9752779,
+    "lon": 76.2785881
+  },
+  {
+    "id": "n9318037201",
+    "name": "Mattancherry Halt",
+    "lat": 9.9371539,
+    "lon": 76.2725909
+  },
+  {
+    "id": "n7505440803",
+    "name": "NGO Quarters",
+    "lat": 10.0209151,
+    "lon": 76.3350043
+  },
+  {
+    "id": "n8668423968",
+    "name": "Kacheripadi",
+    "lat": 9.9863739,
+    "lon": 76.2832086
+  },
+  {
+    "id": "n9318037199",
+    "name": "CPT Junction",
+    "lat": 9.9358163,
+    "lon": 76.2716214
+  },
+  {
+    "id": "n9318037204",
+    "name": "Vathuruthy",
+    "lat": 9.9374959,
+    "lon": 76.2792602
+  },
+  {
+    "id": "n9333852891",
+    "name": "Ambadimoola",
+    "lat": 10.0215832,
+    "lon": 76.3378256
+  },
+  {
+    "id": "n4292039789",
+    "name": "Chembumukku",
+    "lat": 10.0112802,
+    "lon": 76.3220348
+  },
+  {
+    "id": "n5757830542",
+    "name": "Padivattom",
+    "lat": 10.0076352,
+    "lon": 76.3158601
+  },
+  {
+    "id": "n8463175619",
+    "name": "North Railway Station",
+    "lat": 9.9885607,
+    "lon": 76.2859855
+  },
+  {
+    "id": "n8952148817",
+    "name": "Padamugal",
+    "lat": 10.0138153,
+    "lon": 76.3323703
+  },
+  {
+    "id": "n9333852893",
+    "name": "Kunnumpuram",
+    "lat": 10.0177179,
+    "lon": 76.3360581
+  },
+  {
+    "id": "n9333852894",
+    "name": "Colony Junction",
+    "lat": 10.0132182,
+    "lon": 76.3303021
+  },
+  {
+    "id": "n9333852895",
+    "name": "Vazhakkala",
+    "lat": 10.0121558,
+    "lon": 76.325571
+  },
+  {
+    "id": "n8668423952",
+    "name": "St Alberts",
+    "lat": 9.985296,
+    "lon": 76.2785837
+  },
+  {
+    "id": "n9300974358",
+    "name": "Town Hall",
+    "lat": 9.9911478,
+    "lon": 76.2879309
+  },
+  {
+    "id": "n8463147715",
+    "name": "Manapattyparambu",
+    "lat": 9.992298,
+    "lon": 76.2892436
+  },
+  {
+    "id": "n8494116520",
+    "name": "BOT Palam",
+    "lat": 9.9314736,
+    "lon": 76.2675959
+  },
+  {
+    "id": "n8668423966",
+    "name": "Saritha",
+    "lat": 9.9850732,
+    "lon": 76.2767274
+  },
+  {
+    "id": "n9309110550",
+    "name": "Palarivattom",
+    "lat": 10.0023888,
+    "lon": 76.3063722
+  },
+  {
+    "id": "n8463175620",
+    "name": "Kacheripadi",
+    "lat": 9.9861273,
+    "lon": 76.2829206
+  },
+  {
+    "id": "n8494116519",
+    "name": "Pyari Junction",
+    "lat": 9.9321242,
+    "lon": 76.26629
+  },
+  {
+    "id": "n8463147707",
+    "name": "Mathrubhoomi",
+    "lat": 9.9970327,
+    "lon": 76.2946244
+  },
+  {
+    "id": "n9318077924",
+    "name": "Bank Junction",
+    "lat": 10.1126713,
+    "lon": 76.3533416
+  },
+  {
+    "id": "n5145335691",
+    "name": "St Alberts College",
+    "lat": 9.9852674,
+    "lon": 76.279563
+  },
+  {
+    "id": "n9322967975",
+    "name": "Naval Base",
+    "lat": 9.9445556,
+    "lon": 76.2838598
+  },
+  {
+    "id": "n8668423951",
+    "name": "Saritha",
+    "lat": 9.9851217,
+    "lon": 76.2779591
+  },
+  {
+    "id": "n9318037205",
+    "name": "Town Hall",
+    "lat": 10.110049,
+    "lon": 76.3591566
+  },
+  {
+    "id": "n7175749744",
+    "name": "Convent Junction",
+    "lat": 9.9755432,
+    "lon": 76.2804892
+  },
+  {
+    "id": "n9333852888",
+    "name": "Kakkanad Civil Station",
+    "lat": 10.0184476,
+    "lon": 76.3438402
+  },
+  {
+    "id": "n7060336594",
+    "name": "Boat Jetty Junction",
+    "lat": 9.9736589,
+    "lon": 76.2810595
+  },
+  {
+    "id": "n9333520226",
+    "name": "Model Technical School",
+    "lat": 9.9962092,
+    "lon": 76.2938066
+  },
+  {
+    "id": "n4548830490",
+    "name": "HMT Junction",
+    "lat": 10.054649,
+    "lon": 76.3218929
+  },
+  {
+    "id": "n4561240974",
+    "name": "Hospital Junction",
+    "lat": 9.9717809,
+    "lon": 76.2822201
+  },
+  {
+    "id": "n9318037215",
+    "name": "Appolo",
+    "lat": 10.0608392,
+    "lon": 76.3230541
+  },
+  {
+    "id": "n9356237191",
+    "name": "Statue Junction",
+    "lat": 9.9448933,
+    "lon": 76.3460574
+  },
+  {
+    "id": "n8463147704",
+    "name": "Kaloor Stadium",
+    "lat": 10.0008478,
+    "lon": 76.2996397
+  },
+  {
+    "id": "n9333520230",
+    "name": "Najath Hospital",
+    "lat": 10.1095705,
+    "lon": 76.3518906
+  },
+  {
+    "id": "n5757830534",
+    "name": "South Kalamassery",
+    "lat": 10.0490468,
+    "lon": 76.3190748
+  },
+  {
+    "id": "n9310003823",
+    "name": "Maharajas Hostel",
+    "lat": 9.9720822,
+    "lon": 76.2842681
+  },
+  {
+    "id": "n9318077923",
+    "name": "Pump Junction",
+    "lat": 10.1076107,
+    "lon": 76.3601773
+  },
+  {
+    "id": "n9318077921",
+    "name": "Government Hospital",
+    "lat": 10.1053951,
+    "lon": 76.3545426
+  },
+  {
+    "id": "n9333520225",
+    "name": "Model Technical School",
+    "lat": 9.9962388,
+    "lon": 76.2935137
+  },
+  {
+    "id": "n9289531704",
+    "name": "Sree Venkateswara High School",
+    "lat": 9.9467544,
+    "lon": 76.342699
+  },
+  {
+    "id": "n2391343019",
+    "name": "Kappalandi Mukk",
+    "lat": 9.9519132,
+    "lon": 76.2576994
+  },
+  {
+    "id": "n7500481958",
+    "name": "Chullikkal",
+    "lat": 9.9450121,
+    "lon": 76.2579477
+  },
+  {
+    "id": "n9291092496",
+    "name": "Karuvelippadi East",
+    "lat": 9.9406249,
+    "lon": 76.260261
+  },
+  {
+    "id": "n9291092500",
+    "name": "Karuvelippadi",
+    "lat": 9.9430472,
+    "lon": 76.2599585
+  },
+  {
+    "id": "n9291092510",
+    "name": "Panayappilly",
+    "lat": 9.9495233,
+    "lon": 76.257565
+  },
+  {
+    "id": "n8494116517",
+    "name": "Thoppumpady",
+    "lat": 9.9353712,
+    "lon": 76.2619559
+  },
+  {
+    "id": "n9300974354",
+    "name": "Janatha",
+    "lat": 10.0014252,
+    "lon": 76.3016112
+  },
+  {
+    "id": "n7331575715",
+    "name": "Vadakkekotta",
+    "lat": 9.9517694,
+    "lon": 76.3405789
+  },
+  {
+    "id": "n9310410937",
+    "name": "Kumbalangi Vazhi",
+    "lat": 9.9138435,
+    "lon": 76.278784
+  },
+  {
+    "id": "n9344277805",
+    "name": "Thrippunithura",
+    "lat": 9.9433357,
+    "lon": 76.3462158
+  },
+  {
+    "id": "n9356237190",
+    "name": "Menakakotta",
+    "lat": 9.9528146,
+    "lon": 76.3400151
+  },
+  {
+    "id": "n9318077919",
+    "name": "Garage KSRTC",
+    "lat": 10.0925035,
+    "lon": 76.3458999
+  },
+  {
+    "id": "n9356194153",
+    "name": "Petta East",
+    "lat": 9.9513818,
+    "lon": 76.335605
+  },
+  {
+    "id": "n2744199202",
+    "name": "Don Bosco",
+    "lat": 10.0140145,
+    "lon": 76.2768412
+  },
+  {
+    "id": "n7069576483",
+    "name": "Vaduthala Valavu",
+    "lat": 10.0189779,
+    "lon": 76.2751375
+  },
+  {
+    "id": "n7069576484",
+    "name": "Kurishupalli",
+    "lat": 10.0171602,
+    "lon": 76.2762154
+  },
+  {
+    "id": "n7469340151",
+    "name": "Municipal Town Hall",
+    "lat": 10.0445434,
+    "lon": 76.3176445
+  },
+  {
+    "id": "n9338216886",
+    "name": "School Padi",
+    "lat": 10.0098646,
+    "lon": 76.2775679
+  },
+  {
+    "id": "n9338216887",
+    "name": "Vaduthala Gate",
+    "lat": 10.0129854,
+    "lon": 76.2770073
+  },
+  {
+    "id": "n9338216889",
+    "name": "Vaduthala",
+    "lat": 10.0204286,
+    "lon": 76.2744203
+  },
+  {
+    "id": "n9338216890",
+    "name": "Vaduthala Palli",
+    "lat": 10.0218232,
+    "lon": 76.2740972
+  },
+  {
+    "id": "n9338216893",
+    "name": "Vaduthala Palam",
+    "lat": 10.0236642,
+    "lon": 76.2739697
+  },
+  {
+    "id": "n9338216895",
+    "name": "Divine Nagar",
+    "lat": 10.0287354,
+    "lon": 76.2752733
+  },
+  {
+    "id": "n9338216896",
+    "name": "South Chittoor Palli",
+    "lat": 10.0305023,
+    "lon": 76.2752652
+  },
+  {
+    "id": "n9338216899",
+    "name": "Chittoor Temple",
+    "lat": 10.0332274,
+    "lon": 76.2741447
+  },
+  {
+    "id": "n9356194147",
+    "name": "Kizhakke Kotta Junction",
+    "lat": 9.9447744,
+    "lon": 76.3490045
+  },
+  {
+    "id": "n7466613954",
+    "name": "Railway Station",
+    "lat": 9.9468433,
+    "lon": 76.3533759
+  },
+  {
+    "id": "n9258708873",
+    "name": "Ambattukavu",
+    "lat": 10.0813258,
+    "lon": 76.339712
+  },
+  {
+    "id": "n9333520229",
+    "name": "Aluva Palace",
+    "lat": 10.1127353,
+    "lon": 76.3566555
+  },
+  {
+    "id": "n9362413277",
+    "name": "Chathari",
+    "lat": 9.9490068,
+    "lon": 76.3553761
+  },
+  {
+    "id": "n9362413278",
+    "name": "Chathari",
+    "lat": 9.9488826,
+    "lon": 76.355297
+  },
+  {
+    "id": "n9362413279",
+    "name": "Karingachira",
+    "lat": 9.9510859,
+    "lon": 76.3580181
+  },
+  {
+    "id": "n9379961865",
+    "name": "Kizhakke Kotta Junction",
+    "lat": 9.9450796,
+    "lon": 76.3490447
+  },
+  {
+    "id": "n8494116518",
+    "name": "Kochu Palli",
+    "lat": 9.9339116,
+    "lon": 76.2646171
+  },
+  {
+    "id": "n2376866788",
+    "name": "Railway Station",
+    "lat": 9.9468775,
+    "lon": 76.3532115
+  },
+  {
+    "id": "n5757830310",
+    "name": "CSEZ",
+    "lat": 10.0061491,
+    "lon": 76.345066
+  },
+  {
+    "id": "n9318037198",
+    "name": "Karothukuzhi",
+    "lat": 10.1050301,
+    "lon": 76.3512495
+  },
+  {
+    "id": "n9318077918",
+    "name": "Companypady",
+    "lat": 10.0871447,
+    "lon": 76.3427965
+  },
+  {
+    "id": "n9318077927",
+    "name": "Aluva",
+    "lat": 10.108175,
+    "lon": 76.3508646
+  },
+  {
+    "id": "n9342601583",
+    "name": "Ernakulam Boat Jetty",
+    "lat": 9.9723852,
+    "lon": 76.2797445
+  },
+  {
+    "id": "n9362413274",
+    "name": "Market Junction",
+    "lat": 9.9456053,
+    "lon": 76.3505253
+  },
+  {
+    "id": "n5757830535",
+    "name": "Pathadipalam",
+    "lat": 10.0381928,
+    "lon": 76.3154373
+  },
+  {
+    "id": "n9318037216",
+    "name": "Thaikkavu",
+    "lat": 10.0706489,
+    "lon": 76.3319402
+  },
+  {
+    "id": "n9318077922",
+    "name": "Aluva KSRTC",
+    "lat": 10.1068402,
+    "lon": 76.3559367
+  },
+  {
+    "id": "n9362413273",
+    "name": "Market Junction",
+    "lat": 9.9455076,
+    "lon": 76.3505951
+  },
+  {
+    "id": "n9362413276",
+    "name": "RCM Hospital",
+    "lat": 9.9464481,
+    "lon": 76.3518745
+  },
+  {
+    "id": "n9399129094",
+    "name": "Eechamukk",
+    "lat": 10.0093658,
+    "lon": 76.3429208
+  },
+  {
+    "id": "n5757830308",
+    "name": "Akashavani Junction",
+    "lat": 10.012932,
+    "lon": 76.3416197
+  },
+  {
+    "id": "n9310588323",
+    "name": "Vyttila Junction",
+    "lat": 9.9685891,
+    "lon": 76.3174
+  },
+  {
+    "id": "n9318077920",
+    "name": "Pulinchodu",
+    "lat": 10.098823,
+    "lon": 76.3474149
+  },
+  {
+    "id": "n7464400088",
+    "name": "Palluruthy Veli",
+    "lat": 9.9200586,
+    "lon": 76.2741794
+  },
+  {
+    "id": "n8463147695",
+    "name": "Edappally",
+    "lat": 10.0221471,
+    "lon": 76.3067135
+  },
+  {
+    "id": "n9290900851",
+    "name": "Marunnukada",
+    "lat": 9.9233077,
+    "lon": 76.2726492
+  },
+  {
+    "id": "n9290900852",
+    "name": "Kacheripadi",
+    "lat": 9.9141192,
+    "lon": 76.2764831
+  },
+  {
+    "id": "n9290900853",
+    "name": "Palluruthy Nada",
+    "lat": 9.9274484,
+    "lon": 76.2711472
+  },
+  {
+    "id": "n9290900864",
+    "name": "Suriyani Palli",
+    "lat": 9.9293573,
+    "lon": 76.2697029
+  },
+  {
+    "id": "n9300974355",
+    "name": "Janatha",
+    "lat": 9.9679405,
+    "lon": 76.3129751
+  },
+  {
+    "id": "n9356194155",
+    "name": "Petta",
+    "lat": 9.949892,
+    "lon": 76.3318725
+  },
+  {
+    "id": "n9356237198",
+    "name": "Sub Station",
+    "lat": 9.9632604,
+    "lon": 76.3192095
+  },
+  {
+    "id": "n2712147178",
+    "name": "Ernakulam South",
+    "lat": 9.9680734,
+    "lon": 76.2880821
+  },
+  {
+    "id": "n7068947211",
+    "name": "Elamkulam Junction",
+    "lat": 9.9678782,
+    "lon": 76.3050171
+  },
+  {
+    "id": "n7130769338",
+    "name": "Maharajas Ground",
+    "lat": 9.972249,
+    "lon": 76.2861966
+  },
+  {
+    "id": "n7175749752",
+    "name": "Kadavanthara Junction",
+    "lat": 9.9674266,
+    "lon": 76.3000523
+  },
+  {
+    "id": "n2391343018",
+    "name": "Paravana Mukk",
+    "lat": 9.9520508,
+    "lon": 76.2557319
+  },
+  {
+    "id": "n5757830313",
+    "name": "Adarsha Junction",
+    "lat": 10.0038264,
+    "lon": 76.3470014
+  },
+  {
+    "id": "n7175922504",
+    "name": "Janatha",
+    "lat": 9.9680792,
+    "lon": 76.312784
+  },
+  {
+    "id": "n8463147702",
+    "name": "Palarivattom",
+    "lat": 10.0022908,
+    "lon": 76.3060671
+  },
+  {
+    "id": "n9318077926",
+    "name": "Aluva",
+    "lat": 10.1085363,
+    "lon": 76.3508164
+  },
+  {
+    "id": "n9399129088",
+    "name": "Chittethukara",
+    "lat": 9.9979234,
+    "lon": 76.3507007
+  },
+  {
+    "id": "n2391343016",
+    "name": "Koovapadam",
+    "lat": 9.9520508,
+    "lon": 76.2537227
+  },
+  {
+    "id": "n2744199210",
+    "name": "Lourde's Hospital",
+    "lat": 10.0065637,
+    "lon": 76.2782977
+  },
+  {
+    "id": "n5756729631",
+    "name": "Kunnumpuram",
+    "lat": 9.9640554,
+    "lon": 76.2456927
+  },
+  {
+    "id": "n8318473841",
+    "name": "Karingachira",
+    "lat": 9.9516545,
+    "lon": 76.358528
+  },
+  {
+    "id": "n8514334796",
+    "name": "Harber",
+    "lat": 9.9377099,
+    "lon": 76.2609862
+  },
+  {
+    "id": "n8668982935",
+    "name": "Amaravathi",
+    "lat": 9.9569999,
+    "lon": 76.2448556
+  },
+  {
+    "id": "n8668993731",
+    "name": "Fortkochi Veli",
+    "lat": 9.9524878,
+    "lon": 76.2447085
+  },
+  {
+    "id": "n9258708876",
+    "name": "Palarivattam",
+    "lat": 10.0045393,
+    "lon": 76.304989
+  },
+  {
+    "id": "n9291092488",
+    "name": "Pandikudi",
+    "lat": 9.9521541,
+    "lon": 76.2492199
+  },
+  {
+    "id": "n9291092489",
+    "name": "Chirattapalam",
+    "lat": 9.9613647,
+    "lon": 76.2458631
+  },
+  {
+    "id": "n9291092492",
+    "name": "Jetty",
+    "lat": 9.9678701,
+    "lon": 76.2468317
+  },
+  {
+    "id": "n9291092497",
+    "name": "Fort Kochi",
+    "lat": 9.9685784,
+    "lon": 76.244554
+  },
+  {
+    "id": "n9291092503",
+    "name": "Taluk Hospital",
+    "lat": 9.9660791,
+    "lon": 76.2455155
+  },
+  {
+    "id": "n9291092507",
+    "name": "Kockers",
+    "lat": 9.9591487,
+    "lon": 76.2453295
+  },
+  {
+    "id": "n9301209755",
+    "name": "Ajantha",
+    "lat": 9.9522166,
+    "lon": 76.2477994
+  },
+  {
+    "id": "n9309110549",
+    "name": "Karakkat Junction",
+    "lat": 9.9703912,
+    "lon": 76.287154
+  },
+  {
+    "id": "n9344283626",
+    "name": "Vyttila Junction",
+    "lat": 9.9688797,
+    "lon": 76.3169709
+  },
+  {
+    "id": "n9356237193",
+    "name": "Valiyakulam",
+    "lat": 9.9064183,
+    "lon": 76.366986
+  },
+  {
+    "id": "n9356237194",
+    "name": "Nadakkavu",
+    "lat": 9.8987215,
+    "lon": 76.3689601
+  },
+  {
+    "id": "n9375762784",
+    "name": "Electricity Shop",
+    "lat": 9.9013386,
+    "lon": 76.3684022
+  },
+  {
+    "id": "n2580734253",
+    "name": "Pipeline Junction",
+    "lat": 10.0051815,
+    "lon": 76.3128361
+  },
+  {
+    "id": "n8463147701",
+    "name": "Mamangalam",
+    "lat": 10.009473,
+    "lon": 76.3038231
+  },
+  {
+    "id": "n9318964494",
+    "name": "Zeenath Junction",
+    "lat": 10.1052287,
+    "lon": 76.358531
+  },
+  {
+    "id": "n9362413275",
+    "name": "RCM Hospital",
+    "lat": 9.9465934,
+    "lon": 76.3519549
+  },
+  {
+    "id": "n7130826462",
+    "name": "Valanjambalam",
+    "lat": 9.9647499,
+    "lon": 76.2887885
+  },
+  {
+    "id": "n9318037214",
+    "name": "Edappally Toll",
+    "lat": 10.0297021,
+    "lon": 76.3110553
+  },
+  {
+    "id": "n9356194141",
+    "name": "Kinar",
+    "lat": 9.9335647,
+    "lon": 76.353398
+  },
+  {
+    "id": "n9356194143",
+    "name": "Kannankulangara Junction",
+    "lat": 9.9386835,
+    "lon": 76.3514131
+  },
+  {
+    "id": "n9356237189",
+    "name": "Petta Metro Station",
+    "lat": 9.9523501,
+    "lon": 76.3300654
+  },
+  {
+    "id": "n9375762782",
+    "name": "Puthiyakavu Valavu",
+    "lat": 9.9241907,
+    "lon": 76.3565033
+  },
+  {
+    "id": "n2744203531",
+    "name": "Ayyappankavu",
+    "lat": 9.9959899,
+    "lon": 76.2805729
+  },
+  {
+    "id": "n5379782848",
+    "name": "Manorama Junction",
+    "lat": 9.9659299,
+    "lon": 76.2952354
+  },
+  {
+    "id": "n7068947210",
+    "name": "Elamkulam Junction",
+    "lat": 9.9676489,
+    "lon": 76.3049747
+  },
+  {
+    "id": "n9318964493",
+    "name": "Old Railway",
+    "lat": 10.1076823,
+    "lon": 76.3569215
+  },
+  {
+    "id": "n9328870107",
+    "name": "Cochin University",
+    "lat": 10.0468979,
+    "lon": 76.3184193
+  },
+  {
+    "id": "n9338216876",
+    "name": "Cemetery Mukk",
+    "lat": 9.9921466,
+    "lon": 76.2814921
+  },
+  {
+    "id": "n9345870247",
+    "name": "Vyttila Devaswom Board",
+    "lat": 9.9665958,
+    "lon": 76.3193803
+  },
+  {
+    "id": "n9356237192",
+    "name": "Puthiyakavu",
+    "lat": 9.9242396,
+    "lon": 76.3591218
+  },
+  {
+    "id": "n7500983390",
+    "name": "Edapally Palli",
+    "lat": 10.0208021,
+    "lon": 76.3059307
+  },
+  {
+    "id": "n9182595060",
+    "name": "Postoffice",
+    "lat": 10.0184846,
+    "lon": 76.3043296
+  },
+  {
+    "id": "n9182595064",
+    "name": "Mamangalam",
+    "lat": 10.0091019,
+    "lon": 76.3037151
+  },
+  {
+    "id": "n9356194133",
+    "name": "Mankayi Kavala",
+    "lat": 9.9107119,
+    "lon": 76.3649422
+  },
+  {
+    "id": "n9356194135",
+    "name": "Udayamperoor Kavala",
+    "lat": 9.9138679,
+    "lon": 76.3635904
+  },
+  {
+    "id": "n9356194137",
+    "name": "Perumthrikovil",
+    "lat": 9.9196846,
+    "lon": 76.3618711
+  },
+  {
+    "id": "n9356194163",
+    "name": "Elamkulam",
+    "lat": 9.9673026,
+    "lon": 76.3083422
+  },
+  {
+    "id": "n9388068945",
+    "name": "Statue Junction",
+    "lat": 9.9449871,
+    "lon": 76.346384
+  },
+  {
+    "id": "n3676244647",
+    "name": "Namborichante aal",
+    "lat": 10.1485159,
+    "lon": 76.2279749
+  },
+  {
+    "id": "n3711605443",
+    "name": "Civil Station",
+    "lat": 10.1488947,
+    "lon": 76.2304841
+  },
+  {
+    "id": "n5757830312",
+    "name": "Chittethukara",
+    "lat": 10.0016942,
+    "lon": 76.3495237
+  },
+  {
+    "id": "n5757830315",
+    "name": "Chittethukara",
+    "lat": 9.9982299,
+    "lon": 76.3507222
+  },
+  {
+    "id": "n9318964495",
+    "name": "Bank Junction",
+    "lat": 10.1113991,
+    "lon": 76.3515284
+  },
+  {
+    "id": "n9319162420",
+    "name": "Seemas",
+    "lat": 10.1080187,
+    "lon": 76.3494864
+  },
+  {
+    "id": "n9338216901",
+    "name": "HMC",
+    "lat": 10.0351337,
+    "lon": 76.2756649
+  },
+  {
+    "id": "n9338216902",
+    "name": "Shap Pady",
+    "lat": 10.0374909,
+    "lon": 76.2752658
+  },
+  {
+    "id": "n9360637945",
+    "name": "Choorakkad Junction",
+    "lat": 9.9302609,
+    "lon": 76.3548055
+  },
+  {
+    "id": "n9399129091",
+    "name": "Adarsha Junction",
+    "lat": 10.0037466,
+    "lon": 76.3473955
+  },
+  {
+    "id": "n9399129092",
+    "name": "CSEZ",
+    "lat": 10.0063149,
+    "lon": 76.3451938
+  },
+  {
+    "id": "n5757830316",
+    "name": "Rajagiri",
+    "lat": 9.9955153,
+    "lon": 76.3515446
+  },
+  {
+    "id": "n5757830556",
+    "name": "Thykoodam",
+    "lat": 9.9590607,
+    "lon": 76.3183817
+  },
+  {
+    "id": "n6300587585",
+    "name": "Kannadikadu",
+    "lat": 9.9493056,
+    "lon": 76.3182144
+  },
+  {
+    "id": "n7131595937",
+    "name": "Kadavanthra",
+    "lat": 9.966629,
+    "lon": 76.2987001
+  },
+  {
+    "id": "n7413964049",
+    "name": "Thottakkattukara",
+    "lat": 10.1137435,
+    "lon": 76.3461772
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "_note": "Dataset Attribution — amith-vp/Kerala-Private-Bus-Timing (MIT License)",
+  "_source": "https://github.com/amith-vp/Kerala-Private-Bus-Timing",
+  "_license": "MIT",
+  "_origin": "RTI (Right to Information) requests to Kerala government, PDF converted to JSON by Amith VP",
+  "_coverage": [
+    "ernakulam", "alappuzha", "kottayam", "kozhikkode", "kannur",
+    "palakkad", "malappuram", "wayanad", "idukki", "pathanamthitta",
+    "vadakara", "attingal", "muvattupuzha"
+  ],
+  "_schema": {
+    "Vehicle Number": "KL XX Y NNNN — Kerala registered vehicle plate",
+    "route": ["STOP A", "STOP B", "STOP C"],
+    "schedule": [
+      {
+        "trip": 1,
+        "stations": [
+          { "station": "STOP A", "arrivalTime": "HH:MM am/pm", "departureTime": "HH:MM am/pm" }
+        ]
+      }
+    ]
+  },
+  "_how_we_use_it": "We extract route stop sequences and departure times from ernakulam.json to model private bus routes in our routes.json. We do not ship the full 7.5MB file — we synthesize representative routes from it.",
+  "_extracted_routes_in_our_data": [
+    "KBUS_EKM_MUVA_ORD1 — modeled on Ernakulam-Muvattupuzha private bus patterns",
+    "KBUS_KALOOR_MUVA_ORD — modeled on Kaloor-Muvattupuzha private routes",
+    "KBUS_VYTILLA_KAKKANAD_ORD — modeled on Chellanam-Kakkanad patterns"
+  ],
+  "private_routes_ernakulam_sample": [
+    {
+      "id": "PVTBUS_EKM_ANGAMALY_PARAVUR",
+      "number": "KL-05-V-3702",
+      "name": { "en": "Angamaly – North Paravur Private", "ml": "അങ്കമാലി – നോർത്ത് പറവൂർ", "hi": "अंगमाली – नॉर्थ परावूर" },
+      "type": "Private Ordinary", "operator": "Private", "frequency_mins": 45,
+      "stops": ["angamaly", "north_paravur"],
+      "stop_distances_km": [0, 22],
+      "departures": ["06:35", "08:38", "10:40", "12:40", "14:40", "16:40"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT License)"
+    },
+    {
+      "id": "PVTBUS_EKM_ALUVA_KAKKANAD",
+      "number": "Private",
+      "name": { "en": "Aluva – Kakkanad Private Ordinary", "ml": "ആലുവ – കക്കനാട് പ്രൈവറ്റ്", "hi": "अलुवा – काक्कनाड प्राइवेट" },
+      "type": "Private Ordinary", "operator": "Private", "frequency_mins": 30,
+      "stops": ["aluva", "kalamassery", "kakkanad"],
+      "stop_distances_km": [0, 8, 16],
+      "departures": ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT License)"
+    },
+    {
+      "id": "PVTBUS_EKM_VYTILLA_MUVATTUPUZHA",
+      "number": "Private",
+      "name": { "en": "Vytilla – Muvattupuzha Private Fast", "ml": "വൈറ്റില – മൂവാറ്റുപ്പുഴ", "hi": "वायतिल्ला – मुवातुपुझा" },
+      "type": "Private Fast", "operator": "Private", "frequency_mins": 20,
+      "stops": ["vytilla", "tripunithura", "muvattupuzha"],
+      "stop_distances_km": [0, 9, 42],
+      "departures": ["05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT License)"
+    }
+  ]
+}

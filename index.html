@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>ANAVANDI — Multilingual Bus Route & Fare Assistant | Kerala</title>
+  <meta name="description" content="Voice-first multilingual bus route and fare assistant for Kerala. Works offline in Malayalam, English, Hindi." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 1: LANGUAGE SELECT
+════════════════════════════════════════ -->
+<div class="screen active" id="screenLang">
+  <div class="lang-screen-inner">
+    <div class="app-brand">
+      <div class="brand-icon">🚌</div>
+      <h1 class="brand-name">ANAVANDI</h1>
+      <p class="brand-tagline">Bus Route & Fare Assistant · Kerala</p>
+    </div>
+
+    <div class="lang-select-label">Select your language / ഭാഷ തിരഞ്ഞെടുക്കൂ / भाषा चुनें</div>
+
+    <div class="lang-options">
+      <button class="lang-option" id="langOptEn" data-lang="en" aria-label="Continue in English">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-opt-name">English</span>
+        <span class="lang-opt-native">English</span>
+      </button>
+      <button class="lang-option" id="langOptHi" data-lang="hi" aria-label="हिन्दी में जारी रखें">
+        <span class="lang-flag">🇮🇳</span>
+        <span class="lang-opt-name">Hindi</span>
+        <span class="lang-opt-native">हिन्दी</span>
+      </button>
+      <button class="lang-option" id="langOptMl" data-lang="ml" aria-label="മലയാളം">
+        <span class="lang-flag">🌴</span>
+        <span class="lang-opt-name">Malayalam</span>
+        <span class="lang-opt-native">മലയാളം</span>
+      </button>
+    </div>
+
+    <p class="offline-note" id="langOfflineNote">✅ Works offline after first load</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 2: HOME (PLAN)
+════════════════════════════════════════ -->
+<div class="screen" id="screenHome">
+  <!-- Header -->
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="header-logo">
+        <span class="header-bus">🚌</span>
+        <span class="header-title">ANAVANDI</span>
+      </div>
+      <div class="header-right">
+        <button class="hdr-lang-btn" id="changeLangBtn" aria-label="Change language" title="Change language">🌐</button>
+        <button class="hdr-a11y-btn" id="largeTxtBtn" aria-label="Toggle large text" title="Large text">Aa</button>
+        <button class="hdr-theme-btn" id="themeToggleBtn" aria-label="Toggle dark mode" title="Toggle dark/light mode">🌙</button>
+      </div>
+    </div>
+    <div class="offline-strip" id="offlineStrip" role="status"></div>
+  </header>
+
+  <main class="home-main" id="homeMain">
+
+    <!-- Greeting -->
+    <section class="greeting-section">
+      <p class="greeting-big" id="greetingBig">Where would you like to go?</p>
+      <p class="greeting-small" id="greetingSmall">Speak or type your destination</p>
+    </section>
+
+    <!-- GPS Card -->
+    <section class="gps-card" id="gpsCard">
+      <button class="gps-btn" id="gpsBtn" aria-label="Find my location">
+        <span class="gps-icon">📍</span>
+        <div class="gps-text">
+          <span class="gps-label" id="gpsLabel">Where am I?</span>
+          <span class="gps-sub" id="gpsSub">Find nearby bus stops</span>
+        </div>
+        <span class="gps-arrow">›</span>
+      </button>
+      <div class="gps-result" id="gpsResult"></div>
+    </section>
+
+    <!-- Mic Section -->
+    <section class="mic-section-home">
+      <p class="mic-hint" id="micHint">TAP TO SPEAK</p>
+      <button class="mic-btn-home" id="micBtnHome" aria-label="Speak your destination" aria-pressed="false">
+        <span class="mic-icon-home">🎤</span>
+      </button>
+      <p class="mic-status-home" id="micStatusHome" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- STT Confirmation Modal -->
+    <div class="stt-confirm" id="sttConfirm" role="dialog" aria-modal="true" aria-label="Confirm voice input">
+      <p class="stt-heard-label" id="sttHeardLabel">I heard:</p>
+      <p class="stt-transcript" id="sttTranscript"></p>
+      <div class="stt-actions">
+        <button class="stt-confirm-btn" id="sttConfirmBtn">✓ Correct</button>
+        <button class="stt-retry-btn" id="sttRetryBtn">↺ Try Again</button>
+      </div>
+    </div>
+
+    <!-- OR Divider -->
+    <div class="or-divider">
+      <span id="orText">OR TYPE</span>
+    </div>
+
+    <!-- Text Input Card -->
+    <section class="input-card-home">
+      <div class="input-group-home">
+        <label class="input-lbl" for="fromInput" id="fromLbl">🟢 FROM</label>
+        <div class="input-wrap">
+          <input type="text" class="stop-input" id="fromInput" placeholder="Boarding stop…" autocomplete="off"
+            aria-label="Boarding stop" aria-autocomplete="list" aria-controls="fromDropdown" />
+          <div class="dropdown-list" id="fromDropdown" role="listbox"></div>
+        </div>
+      </div>
+
+      <button class="swap-stops-btn" id="swapBtn" aria-label="Swap stops" title="Swap">⇅</button>
+
+      <div class="input-group-home">
+        <label class="input-lbl" for="toInput" id="toLbl">🔴 TO</label>
+        <div class="input-wrap">
+          <input type="text" class="stop-input" id="toInput" placeholder="Destination stop…" autocomplete="off"
+            aria-label="Destination stop" aria-autocomplete="list" aria-controls="toDropdown" />
+          <div class="dropdown-list" id="toDropdown" role="listbox"></div>
+        </div>
+      </div>
+
+      <button class="find-btn-home" id="findBtnHome" aria-label="Find bus route">
+        <span id="findBtnText">Find My Bus →</span>
+      </button>
+    </section>
+
+    <!-- Quick Suggestions -->
+    <section class="quick-section">
+      <p class="quick-label" id="quickLabel">Quick routes</p>
+      <div class="quick-chips" id="quickChips"></div>
+    </section>
+
+    <!-- Error -->
+    <div class="error-bar" id="errorBar" role="alert" aria-live="assertive">
+      <span class="error-icon">⚠️</span>
+      <span id="errorMsg"></span>
+    </div>
+
+    <!-- Loading -->
+    <div class="search-loading" id="searchLoading" role="status" aria-live="polite">
+      <div class="dot-pulse"><span></span><span></span><span></span></div>
+      <span id="searchingText">Finding your bus…</span>
+    </div>
+
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 3: RESULT
+════════════════════════════════════════ -->
+<div class="screen" id="screenResult">
+  <header class="result-header-bar">
+    <button class="back-btn" id="backToHome" aria-label="Go back">← Back</button>
+    <span class="result-header-title" id="resultHeaderTitle">Your Journey</span>
+    <button class="hdr-lang-btn" id="changeLangResult" aria-label="Change language">🌐</button>
+  </header>
+
+  <div class="result-scroll">
+    <!-- Route option cards injected here by JS -->
+    <div class="result-main" id="resultMain"></div>
+
+    <div class="fare-estimate-note" id="fareNote">
+      <span>⚠️</span>
+      <span id="fareNoteText">Fare shown is an estimate based on KSRTC stage data. Actual fare may vary.</span>
+    </div>
+
+    <!-- Offline indicator -->
+    <div class="result-offline-badge" id="resultOfflineBadge">
+      <span>✓ Offline route data available</span>
+    </div>
+
+    <button class="new-search-btn" id="newSearchBtn">↺ <span id="newSearchTxt">New Search</span></button>
+  </div>
+
+  <!-- Sticky bottom bar: appears only when a route is selected -->
+  <div class="sticky-journey-bar" id="stickyJourneyBar">
+    <div class="sjb-selected-info" id="sjbSelectedInfo">No route selected</div>
+    <div class="sjb-actions">
+      <button class="speak-result-btn" id="speakResultBtn">🔊 <span id="speakResultTxt">Hear Directions</span></button>
+      <button class="start-journey-btn" id="startJourneyBtn" disabled>
+        <span id="startJourneyTxt">Start Journey →</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCREEN 4: JOURNEY MODE (GO)
+════════════════════════════════════════ -->
+<div class="screen" id="screenJourney">
+  <header class="journey-header">
+    <button class="back-btn light" id="backToResult" aria-label="Back to result">← Back</button>
+    <span class="journey-header-title" id="journeyHeaderTitle">Journey Mode</span>
+    <span class="journey-offline-pill" id="journeyOfflinePill">📴 Offline</span>
+  </header>
+
+  <div class="journey-body">
+
+    <!-- CURRENT STEP CARD (the most important UI element) -->
+    <div class="current-step-card" id="currentStepCard">
+      <div class="csc-label" id="cscStepLabel">CURRENT STEP</div>
+      <div class="csc-instruction" id="cscInstruction">—</div>
+      <div class="csc-bus-badge" id="cscBusBadge"></div>
+    </div>
+
+    <!-- NEXT STEP CARD -->
+    <div class="next-step-card" id="nextStepCard">
+      <div class="nsc-label">NEXT</div>
+      <div class="nsc-instruction" id="nscInstruction">—</div>
+    </div>
+
+    <!-- All stops in journey (collapsible) -->
+    <div class="journey-steps-list" id="journeyStepsList"></div>
+
+    <!-- Distance Card -->
+    <div class="distance-card" id="distanceCard">
+      <div class="dist-main">
+        <span class="dist-num" id="distNum">—</span>
+        <span class="dist-unit" id="distUnit">km remaining</span>
+      </div>
+      <div class="dist-bar-wrap">
+        <div class="dist-bar" id="distBar" style="width:100%"></div>
+      </div>
+      <p class="dist-label" id="distLabel">Journey in progress</p>
+    </div>
+
+    <!-- Alert History -->
+    <div class="alert-log" id="alertLog">
+      <p class="alert-log-title" id="alertLogTitle">Destination Alerts</p>
+      <div class="alert-items" id="alertItems">
+        <div class="alert-item pending" id="alertItem1km">
+          <span class="alert-dot">●</span>
+          <span id="alert1kmText">1 km — your destination is 1 km away</span>
+        </div>
+        <div class="alert-item pending" id="alertItem500m">
+          <span class="alert-dot">●</span>
+          <span id="alert500mText">500 m — prepare to get down</span>
+        </div>
+        <div class="alert-item pending" id="alertItem150m">
+          <span class="alert-dot">●</span>
+          <span id="alert150mText">150 m — your stop is next</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GPS Status -->
+    <div class="gps-status-card" id="gpsStatusCard">
+      <p class="gps-status-label" id="gpsStatusLabel">📡 Locating you…</p>
+      <p class="gps-coords" id="gpsCoords"></p>
+    </div>
+
+    <!-- Journey Controls -->
+    <div class="journey-controls">
+      <button class="speak-now-btn" id="speakNowBtn">🔊 <span id="speakNowTxt">Hear Directions</span></button>
+      <button class="end-journey-btn" id="endJourneyBtn">■ <span id="endJourneyTxt">End Journey</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Arrival Modal -->
+<div class="arrival-overlay" id="arrivalOverlay" role="dialog" aria-modal="true" aria-label="Journey complete">
+  <div class="arrival-card">
+    <div class="arrival-icon">✅</div>
+    <h2 class="arrival-title" id="arrivalTitle">You've Arrived!</h2>
+    <p class="arrival-stop" id="arrivalStop"></p>
+    <p class="arrival-sub" id="arrivalSub"></p>
+    <button class="arrival-done-btn" id="arrivalDoneBtn">Done</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+query_id,language,lang_code,input_type,user_query,resolved_origin,resolved_destination,intent,expected_bus,transfer_at,scenario,notes
+Q001,English,en-IN,voice,How do I go from Aluva to Cherthala?,aluva,cherthala,ROUTE,42C+R003,vytilla,transfer,Tests transfer via Edapally-Vyttila
+Q002,Malayalam,ml-IN,voice,ആലുവയിൽ നിന്ന് ആലപ്പുഴ എങ്ങനെ?,aluva,alappuzha,ROUTE,R001,ernakulam_ksrtc,transfer,Transfer at KSRTC
+Q003,Hindi,hi-IN,voice,मुझे अलप्पुझा जाना है,ernakulam_ksrtc,alappuzha,ROUTE,R001,,direct,Rahul scenario
+Q004,Hindi,hi-IN,voice,Ernakulam se Alleppey kaise jaaye?,ernakulam_ksrtc,alappuzha,ROUTE,R001,,direct,Uses alias Alleppey
+Q005,English,en-IN,text,Alleppey bus from Kochi,ernakulam_ksrtc,alappuzha,ROUTE,R001,,direct,Alias Alleppey + Kochi
+Q006,Malayalam,ml-IN,voice,ചേർത്തലക്ക് ബസ് ഉണ്ടോ,ernakulam_ksrtc,cherthala,ROUTE,R001,,direct,Direct route check
+Q007,English,en-IN,voice,What is the fare from Vytilla to Alappuzha?,vytilla,alappuzha,FARE,R001,,fare_only,Fare query
+Q008,Hindi,hi-IN,voice,Ernakulam KSRTC se Kottayam,ernakulam_ksrtc,kottayam,ROUTE,R005,,direct,Direct Kottayam route
+Q009,Malayalam,ml-IN,voice,എറണാകുളം സൗത്ത് നിന്ന് ആലുവ,ernakulam_south,aluva,ROUTE,55A,,direct,Common route
+Q010,English,en-IN,text,Bus from Ernakulam to airport,ernakulam_south,kochi_airport,ROUTE,55A+90,aluva,transfer,Transfer at Aluva for airport
+Q011,Hindi,hi-IN,voice,Aluva se Thrissur kaise jaaun,aluva,thrissur,ROUTE,77,,direct,Long distance direct
+Q012,Malayalam,ml-IN,voice,ആലുവ നിന്ന് ആലപ്പുഴ,aluva,alappuzha,ROUTE,R001,ernakulam_ksrtc,transfer,Transfer scenario
+Q013,English,en-IN,voice,I want to go to Wakanda,,wakanda,UNKNOWN,,,unknown_destination,Hallucination prevention test
+Q014,English,en-IN,voice,How many fare stages from Ernakulam to Alappuzha?,ernakulam_ksrtc,alappuzha,FARE,R001,,stage_query,Expects 18 stages
+Q015,Malayalam,ml-IN,voice,ചേർത്തല നിന്ന് ആലപ്പുഴ,cherthala,alappuzha,ROUTE,R004,,direct,Short direct route
+Q016,Hindi,hi-IN,voice,Alwaye se Cherthala,aluva,cherthala,ROUTE,42C+R003,vytilla,transfer,Uses alias Alwaye
+Q017,English,en-IN,text,nearest bus stop to Infopark,,,LOCATION,21,kakkanad,location_query,Landmark lookup
+Q018,Malayalam,ml-IN,voice,കൊട്ടയത്ത് നിന്ന് ആലപ്പുഴ,kottayam,alappuzha,ROUTE,R002,,direct,Kottayam to Alappuzha
+Q019,Hindi,hi-IN,voice,Mujhe Thrissur jaana hai,ernakulam_south,thrissur,ROUTE,77,,direct,Natural Hindi sentence
+Q020,English,en-IN,voice,Bus from Vyttila to Cherthala,vytilla,cherthala,ROUTE,R003,,direct,Uses alias Vyttila

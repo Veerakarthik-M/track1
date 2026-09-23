@@ -1,0 +1,281 @@
+{
+  "ernakulam_south": {
+    "id": "ernakulam_south",
+    "en": "Ernakulam South",
+    "ml": "എറണാകുളം സൗത്ത്",
+    "hi": "एर्नाकुलम साउथ",
+    "lat": 9.9816,
+    "lon": 76.2999,
+    "landmark": { "en": "Near South Railway Station", "ml": "ദക്ഷിണ റെയിൽവേ സ്റ്റേഷൻ", "hi": "दक्षिण रेलवे स्टेशन" }
+  },
+  "ernakulam_north": {
+    "id": "ernakulam_north",
+    "en": "Ernakulam North",
+    "ml": "എറണാകുളം നോർത്ത്",
+    "hi": "एर्नाकुलम नॉर्थ",
+    "lat": 9.9981,
+    "lon": 76.2998,
+    "landmark": { "en": "Near North Railway Station", "ml": "വടക്ക് റെയിൽവേ സ്റ്റേഷൻ", "hi": "उत्तर रेलवे स्टेशन" }
+  },
+  "ernakulam_ksrtc": {
+    "id": "ernakulam_ksrtc",
+    "en": "Ernakulam KSRTC Bus Station",
+    "ml": "എറണാകുളം കെഎസ്ആർടിസി ബസ് സ്റ്റേഷൻ",
+    "hi": "एर्नाकुलम KSRTC बस स्टेशन",
+    "lat": 9.9889,
+    "lon": 76.2950,
+    "landmark": { "en": "Main KSRTC depot, Ernakulam", "ml": "കെഎസ്ആർടിസി ഡിപ്പോ", "hi": "मुख्य KSRTC डिपो" }
+  },
+  "vytilla": {
+    "id": "vytilla",
+    "en": "Vytilla",
+    "ml": "വൈറ്റില",
+    "hi": "वायतिल्ला",
+    "lat": 9.9605,
+    "lon": 76.3090,
+    "landmark": { "en": "Vytilla Mobility Hub", "ml": "വൈറ്റില മൊബിലിറ്റി ഹബ്ബ്", "hi": "वायतिल्ला मोबिलिटी हब" }
+  },
+  "edapally": {
+    "id": "edapally",
+    "en": "Edapally",
+    "ml": "എടപ്പള്ളി",
+    "hi": "एदापल्ली",
+    "lat": 10.0209,
+    "lon": 76.3080,
+    "landmark": { "en": "Edapally Junction", "ml": "എടപ്പള്ളി ജംഗ്ഷൻ", "hi": "एदापल्ली जंक्शन" }
+  },
+  "kalamassery": {
+    "id": "kalamassery",
+    "en": "Kalamassery",
+    "ml": "കളമശ്ശേരി",
+    "hi": "कलमस्सेरी",
+    "lat": 10.0542,
+    "lon": 76.3255,
+    "landmark": { "en": "Kalamassery Medical College", "ml": "കളമശ്ശേരി മെഡിക്കൽ കോളേജ്", "hi": "कलमस्सेरी मेडिकल कॉलेज" }
+  },
+  "aluva": {
+    "id": "aluva",
+    "en": "Aluva",
+    "ml": "ആലുവ",
+    "hi": "अलुवा",
+    "lat": 10.1009,
+    "lon": 76.3569,
+    "landmark": { "en": "Aluva KSRTC Bus Stand", "ml": "ആലുവ ബസ് സ്റ്റാൻഡ്", "hi": "अलुवा बस स्टैंड" }
+  },
+  "perumbavoor": {
+    "id": "perumbavoor",
+    "en": "Perumbavoor",
+    "ml": "പെരുമ്പാവൂർ",
+    "hi": "पेरुम्बावूर",
+    "lat": 10.1071,
+    "lon": 76.4688,
+    "landmark": { "en": "Perumbavoor Town Centre", "ml": "പെരുമ്പാവൂർ ടൗൺ", "hi": "पेरुम्बावूर टाउन" }
+  },
+  "angamaly": {
+    "id": "angamaly",
+    "en": "Angamaly",
+    "ml": "അങ്കമാലി",
+    "hi": "अंगमाली",
+    "lat": 10.1952,
+    "lon": 76.3869,
+    "landmark": { "en": "Angamaly Junction", "ml": "അങ്കമാലി ജംഗ്ഷൻ", "hi": "अंगमाली जंक्शन" }
+  },
+  "thrissur": {
+    "id": "thrissur",
+    "en": "Thrissur",
+    "ml": "തൃശ്ശൂർ",
+    "hi": "त्रिशूर",
+    "lat": 10.5276,
+    "lon": 76.2144,
+    "landmark": { "en": "Thrissur Round", "ml": "തൃശ്ശൂർ റൗണ്ട്", "hi": "त्रिशूर राउंड" }
+  },
+  "chalakudy": {
+    "id": "chalakudy",
+    "en": "Chalakudy",
+    "ml": "ചാലക്കുടി",
+    "hi": "चालक्कुडी",
+    "lat": 10.3006,
+    "lon": 76.3318,
+    "landmark": { "en": "Chalakudy Bus Stand", "ml": "ചാലക്കുടി ബസ് സ്റ്റാൻഡ്", "hi": "चालक्कुडी बस स्टैंड" }
+  },
+  "kakkanad": {
+    "id": "kakkanad",
+    "en": "Kakkanad",
+    "ml": "കക്കനാട്",
+    "hi": "काक्कनाड",
+    "lat": 10.0108,
+    "lon": 76.3488,
+    "landmark": { "en": "Infopark Junction", "ml": "ഇൻഫോ പാർക്ക് ജംഗ്ഷൻ", "hi": "इन्फोपार्क जंक्शन" }
+  },
+  "tripunithura": {
+    "id": "tripunithura",
+    "en": "Tripunithura",
+    "ml": "തൃപ്പൂണിത്തുറ",
+    "hi": "त्रिपुनिथुरा",
+    "lat": 9.9450,
+    "lon": 76.3514,
+    "landmark": { "en": "Tripunithura Hill Palace", "ml": "ഹിൽ പാലസ്", "hi": "हिल पैलेस" }
+  },
+  "muvattupuzha": {
+    "id": "muvattupuzha",
+    "en": "Muvattupuzha",
+    "ml": "മൂവാറ്റുപ്പുഴ",
+    "hi": "मुवातुपुझा",
+    "lat": 9.9852,
+    "lon": 76.5798,
+    "landmark": { "en": "Muvattupuzha Bus Stand", "ml": "ബസ് സ്റ്റാൻഡ്", "hi": "बस स्टैंड" }
+  },
+  "kothamangalam": {
+    "id": "kothamangalam",
+    "en": "Kothamangalam",
+    "ml": "കോതമംഗലം",
+    "hi": "कोथमंगलम",
+    "lat": 10.0602,
+    "lon": 76.6291,
+    "landmark": { "en": "Kothamangalam Town", "ml": "ടൗൺ", "hi": "टाउन" }
+  },
+  "kochi_airport": {
+    "id": "kochi_airport",
+    "en": "Kochi Airport",
+    "ml": "കൊച്ചി വിമാനത്താവളം",
+    "hi": "कोच्चि हवाई अड्डा",
+    "lat": 10.1520,
+    "lon": 76.3919,
+    "landmark": { "en": "Cochin International Airport", "ml": "ഇൻ്റർനാഷണൽ എയർപോർട്ട്", "hi": "अंतर्राष्ट्रीय हवाई अड्डा" }
+  },
+  "aroor": {
+    "id": "aroor",
+    "en": "Aroor",
+    "ml": "ആറൂർ",
+    "hi": "आरूर",
+    "lat": 9.8701,
+    "lon": 76.3201,
+    "landmark": { "en": "Aroor Junction", "ml": "ആറൂർ ജംഗ്ഷൻ", "hi": "आरूर जंक्शन" }
+  },
+  "cherthala": {
+    "id": "cherthala",
+    "en": "Cherthala",
+    "ml": "ചേർത്തല",
+    "hi": "चेर्थला",
+    "lat": 9.6847,
+    "lon": 76.3359,
+    "landmark": { "en": "Cherthala Town", "ml": "ചേർത്തല ടൗൺ", "hi": "चेर्थला टाउन" }
+  },
+  "alappuzha": {
+    "id": "alappuzha",
+    "en": "Alappuzha",
+    "ml": "ആലപ്പുഴ",
+    "hi": "अलप्पुझा",
+    "lat": 9.4981,
+    "lon": 76.3388,
+    "landmark": { "en": "Alappuzha KSRTC Bus Station", "ml": "ആലപ്പുഴ ബസ് സ്റ്റേഷൻ", "hi": "अलप्पुझा KSRTC बस स्टेशन" }
+  },
+  "kottayam": {
+    "id": "kottayam",
+    "en": "Kottayam",
+    "ml": "കോട്ടയം",
+    "hi": "कोट्टायम",
+    "lat": 9.5916,
+    "lon": 76.5222,
+    "landmark": { "en": "Kottayam Bus Stand", "ml": "കോട്ടയം ബസ് സ്റ്റാൻഡ്", "hi": "कोट्टायम बस स्टैंड" }
+  },
+  "kaloor": {
+    "id": "kaloor",
+    "en": "Kaloor",
+    "ml": "കാലൂർ",
+    "hi": "कालूर",
+    "lat": 10.0055,
+    "lon": 76.3028,
+    "landmark": { "en": "Kaloor High Court Junction", "ml": "ഹൈക്കോടതി ജംഗ്ഷൻ", "hi": "हाई कोर्ट जंक्शन" }
+  },
+  "thevara": {
+    "id": "thevara",
+    "en": "Thevara",
+    "ml": "തേവര",
+    "hi": "थेवरा",
+    "lat": 9.9636,
+    "lon": 76.3013,
+    "landmark": { "en": "Thevara Junction", "ml": "തേവര ജംഗ്ഷൻ", "hi": "थेवरा जंक्शन" }
+  },
+  "thoppumpady": {
+    "id": "thoppumpady",
+    "en": "Thoppumpady",
+    "ml": "തൊപ്പുംപടി",
+    "hi": "थोप्पुम्पडी",
+    "lat": 9.9543,
+    "lon": 76.2953,
+    "landmark": { "en": "Thoppumpady Junction", "ml": "തൊപ്പുംപടി ജംഗ്ഷൻ", "hi": "थोप्पुम्पडी जंक्शन" }
+  },
+  "chellanam": {
+    "id": "chellanam",
+    "en": "Chellanam",
+    "ml": "ചെല്ലാനം",
+    "hi": "चेल्लानम",
+    "lat": 9.8781,
+    "lon": 76.2713,
+    "landmark": { "en": "Chellanam Harbour", "ml": "ചെല്ലാനം ഹാർബർ", "hi": "चेल्लानम बंदरगाह" }
+  },
+  "vazhakulam": {
+    "id": "vazhakulam",
+    "en": "Vazhakulam",
+    "ml": "വാഴക്കുളം",
+    "hi": "वाझाकुलम",
+    "lat": 10.0490,
+    "lon": 76.4880,
+    "landmark": { "en": "Vazhakulam Market", "ml": "വാഴക്കുളം മാർക്കറ്റ്", "hi": "वाझाकुलम बाजार" }
+  },
+  "thodupuzha": {
+    "id": "thodupuzha",
+    "en": "Thodupuzha",
+    "ml": "തൊടുപുഴ",
+    "hi": "थोडुपुझा",
+    "lat": 9.8983,
+    "lon": 76.7177,
+    "landmark": { "en": "Thodupuzha Town Bus Stand", "ml": "തൊടുപുഴ ബസ് സ്റ്റാൻഡ്", "hi": "थोडुपुझा बस स्टैंड" }
+  },
+  "kattappana": {
+    "id": "kattappana",
+    "en": "Kattappana",
+    "ml": "കട്ടപ്പന",
+    "hi": "कट्टप्पन",
+    "lat": 9.7487,
+    "lon": 77.0961,
+    "landmark": { "en": "Kattappana Town", "ml": "കട്ടപ്പന ടൗൺ", "hi": "कट्टप्पन टाउन" }
+  },
+  "nedumkandam": {
+    "id": "nedumkandam",
+    "en": "Nedumkandam",
+    "ml": "നെടുംകണ്ടം",
+    "hi": "नेदुमकण्डम",
+    "lat": 9.6824,
+    "lon": 77.1695,
+    "landmark": { "en": "Nedumkandam Town", "ml": "നെടുംകണ്ടം ടൗൺ", "hi": "नेदुमकण्डम टाउन" }
+  },
+  "ernakulam_jetty": {
+    "id": "ernakulam_jetty",
+    "en": "Ernakulam Boat Jetty",
+    "ml": "എറണാകുളം ബോട്ട് ജെട്ടി",
+    "hi": "एर्नाकुलम बोट जेट्टी",
+    "lat": 9.9674,
+    "lon": 76.2757,
+    "landmark": { "en": "Fort Kochi Ferry Point", "ml": "ഫോർട്ട് കൊച്ചി ഫെറി", "hi": "फोर्ट कोच्चि फेरी" }
+  },
+  "pathanamthitta": {
+    "id": "pathanamthitta",
+    "en": "Pathanamthitta",
+    "ml": "പത്തനംതിട്ട",
+    "hi": "पत्तनमथिट्टा",
+    "lat": 9.2648,
+    "lon": 76.7870,
+    "landmark": { "en": "Pathanamthitta Town", "ml": "പത്തനംതിട്ട ടൗൺ", "hi": "पत्तनमथिट्टा टाउन" }
+  },
+  "changanacherry": {
+    "id": "changanacherry",
+    "en": "Changanacherry",
+    "ml": "ചങ്ങനാശ്ശേരി",
+    "hi": "चांगनाचेरी",
+    "lat": 9.4457,
+    "lon": 76.5391,
+    "landmark": { "en": "Changanacherry Town", "ml": "ടൗൺ", "hi": "टाउन" }
+  }
+}

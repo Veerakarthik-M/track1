@@ -1,0 +1,294 @@
+{
+  "routes": [
+    {
+      "id": "EKM_42C",
+      "number": "42C",
+      "name": { "en": "Vytilla – Aluva Express", "ml": "വൈറ്റില – ആലുവ എക്സ്പ്രസ്", "hi": "वायतिल्ला – अलुवा एक्सप्रेस" },
+      "type": "City", "operator": "KSRTC", "frequency_mins": 15,
+      "stops": ["vytilla", "edapally", "kalamassery", "aluva"],
+      "stop_distances_km": [0, 8, 14, 22]
+    },
+    {
+      "id": "EKM_55A",
+      "number": "55A",
+      "name": { "en": "Ernakulam South – Aluva Fast", "ml": "എറണാകുളം സൗത്ത് – ആലുവ ഫാസ്റ്റ്", "hi": "एर्नाकुलम साउथ – अलुवा फास्ट" },
+      "type": "Fast", "operator": "KSRTC", "frequency_mins": 20,
+      "stops": ["ernakulam_south", "ernakulam_north", "edapally", "kalamassery", "aluva"],
+      "stop_distances_km": [0, 2, 10, 16, 24]
+    },
+    {
+      "id": "EKM_18B",
+      "number": "18B",
+      "name": { "en": "Ernakulam South – Angamaly", "ml": "എറണാകുളം സൗത്ത് – അങ്കമാലി", "hi": "एर्नाकुलम साउथ – अंगमाली" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["ernakulam_south", "ernakulam_north", "edapally", "kalamassery", "aluva", "angamaly"],
+      "stop_distances_km": [0, 2, 10, 16, 24, 34]
+    },
+    {
+      "id": "EKM_77",
+      "number": "77",
+      "name": { "en": "Ernakulam South – Thrissur", "ml": "എറണാകുളം സൗത്ത് – തൃശ്ശൂർ", "hi": "एर्नाकुलम साउथ – त्रिशूर" },
+      "type": "Super Fast", "operator": "KSRTC", "frequency_mins": 45,
+      "stops": ["ernakulam_south", "edapally", "aluva", "angamaly", "chalakudy", "thrissur"],
+      "stop_distances_km": [0, 10, 24, 34, 52, 76]
+    },
+    {
+      "id": "EKM_21",
+      "number": "21",
+      "name": { "en": "Vytilla – Kakkanad", "ml": "വൈറ്റില – കക്കനാട്", "hi": "वायतिल्ला – काक्कनाड" },
+      "type": "City", "operator": "City Bus", "frequency_mins": 20,
+      "stops": ["vytilla", "kakkanad"],
+      "stop_distances_km": [0, 11]
+    },
+    {
+      "id": "EKM_33",
+      "number": "33",
+      "name": { "en": "Ernakulam South – Tripunithura", "ml": "എറണാകുളം സൗത്ത് – തൃപ്പൂണിത്തുറ", "hi": "एर्नाकुलम साउथ – त्रिपुनिथुरा" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 25,
+      "stops": ["ernakulam_south", "tripunithura"],
+      "stop_distances_km": [0, 9]
+    },
+    {
+      "id": "EKM_90",
+      "number": "90",
+      "name": { "en": "Aluva – Kochi Airport", "ml": "ആലുവ – കൊച്ചി വിമാനത്താവളം", "hi": "अलुवा – कोच्चि हवाई अड्डा" },
+      "type": "Airport", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["aluva", "angamaly", "kochi_airport"],
+      "stop_distances_km": [0, 10, 18]
+    },
+    {
+      "id": "EKM_12",
+      "number": "12",
+      "name": { "en": "Ernakulam South – Muvattupuzha", "ml": "എറണാകുളം സൗത്ത് – മൂവാറ്റുപ്പുഴ", "hi": "एर्नाकुलम साउथ – मुवातुपुझा" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 35,
+      "stops": ["ernakulam_south", "tripunithura", "muvattupuzha"],
+      "stop_distances_km": [0, 9, 42]
+    },
+    {
+      "id": "EKM_60",
+      "number": "60",
+      "name": { "en": "Aluva – Perumbavoor", "ml": "ആലുവ – പെരുമ്പാവൂർ", "hi": "अलुवा – पेरुम्बावूर" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["aluva", "perumbavoor"],
+      "stop_distances_km": [0, 18]
+    },
+    {
+      "id": "EKM_R001",
+      "number": "R001",
+      "name": { "en": "Ernakulam KSRTC – Alappuzha Direct", "ml": "എറണാകുളം – ആലപ്പുഴ ഡയറക്ട്", "hi": "एर्नाकुलम – अलप्पुझा डायरेक्ट" },
+      "type": "Super Fast", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["ernakulam_ksrtc", "vytilla", "aroor", "cherthala", "alappuzha"],
+      "stop_distances_km": [0, 5, 18, 35, 55]
+    },
+    {
+      "id": "EKM_R002",
+      "number": "R002",
+      "name": { "en": "Ernakulam South – Alappuzha via Kottayam", "ml": "എറണാകുളം – ആലപ്പുഴ കോട്ടയം വഴി", "hi": "एर्नाकुलम – अलप्पुझा कोट्टायम के रास्ते" },
+      "type": "Fast", "operator": "KSRTC", "frequency_mins": 45,
+      "stops": ["ernakulam_south", "tripunithura", "muvattupuzha", "kottayam", "changanacherry", "alappuzha"],
+      "stop_distances_km": [0, 9, 42, 65, 80, 100]
+    },
+    {
+      "id": "EKM_R003",
+      "number": "R003",
+      "name": { "en": "Vytilla – Cherthala Local", "ml": "വൈറ്റില – ചേർത്തല ലോക്കൽ", "hi": "वायतिल्ला – चेर्थला लोकल" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 35,
+      "stops": ["vytilla", "aroor", "cherthala"],
+      "stop_distances_km": [0, 13, 30]
+    },
+    {
+      "id": "EKM_R004",
+      "number": "R004",
+      "name": { "en": "Cherthala – Alappuzha", "ml": "ചേർത്തല – ആലപ്പുഴ", "hi": "चेर्थला – अलप्पुझा" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 20,
+      "stops": ["cherthala", "alappuzha"],
+      "stop_distances_km": [0, 20]
+    },
+    {
+      "id": "EKM_R005",
+      "number": "R005",
+      "name": { "en": "Ernakulam KSRTC – Kottayam", "ml": "എറണാകുളം – കോട്ടയം", "hi": "एर्नाकुलम – कोट्टायम" },
+      "type": "Fast", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["ernakulam_ksrtc", "tripunithura", "muvattupuzha", "kottayam"],
+      "stop_distances_km": [0, 9, 42, 65]
+    },
+    {
+      "id": "EKM_22",
+      "number": "22",
+      "name": { "en": "Kakkanad – Ernakulam KSRTC", "ml": "കക്കനാട് – എറണാകുളം", "hi": "काक्कनाड – एर्नाकुलम" },
+      "type": "City", "operator": "City Bus", "frequency_mins": 15,
+      "stops": ["kakkanad", "edapally", "ernakulam_north", "ernakulam_ksrtc"],
+      "stop_distances_km": [0, 5, 10, 12]
+    },
+    {
+      "id": "EKM_23",
+      "number": "23",
+      "name": { "en": "Kakkanad – Aluva via Kalamassery", "ml": "കക്കനാട് – ആലുവ", "hi": "काक्कनाड – अलुवा" },
+      "type": "City", "operator": "City Bus", "frequency_mins": 25,
+      "stops": ["kakkanad", "kalamassery", "aluva"],
+      "stop_distances_km": [0, 8, 16]
+    },
+
+    {
+      "id": "KBUS_EKM_CUMBU_FP",
+      "number": "KSRTC Cumbummettu FP",
+      "name": { "en": "Ernakulam – Cumbummettu Fast Passenger", "ml": "എറണാകുളം – കുമ്പുംമേട്ടു ഫാസ്റ്റ്", "hi": "एर्नाकुलम – कुम्बुम्मेट्टु फास्ट" },
+      "type": "Fast Passenger", "operator": "KSRTC", "frequency_mins": 90,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "vazhakulam", "perumbavoor", "kothamangalam", "thodupuzha", "kattappana"],
+      "stop_distances_km": [0, 15, 35, 50, 68, 95, 140],
+      "departures": ["03:15", "12:00", "23:00"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_MUVA_ORD1",
+      "number": "KSRTC Muvattupuzha Ord",
+      "name": { "en": "Ernakulam – Muvattupuzha Ordinary (via Kakkanad)", "ml": "എറണാകുളം – മൂവാറ്റുപ്പുഴ ഓർഡിനറി", "hi": "एर्नाकुलम – मुवातुपुझा ऑर्डिनरी" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "vazhakulam", "muvattupuzha"],
+      "stop_distances_km": [0, 15, 35, 57],
+      "departures": ["05:00", "08:30", "10:30", "12:45", "13:00", "15:00", "15:10", "19:00", "19:30", "19:50"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_SOUTH_KATTA_LSO",
+      "number": "KSRTC EkmS Kattappana LSO",
+      "name": { "en": "Ernakulam South – Kattappana Limited Stop", "ml": "എറണാകുളം സൗത്ത് – കട്ടപ്പന ലിമിറ്റഡ്", "hi": "एर्नाकुलम साउथ – कट्टप्पन लिमिटेड" },
+      "type": "Limited Stop Ordinary", "operator": "KSRTC", "frequency_mins": 90,
+      "stops": ["ernakulam_south", "kakkanad", "vazhakulam", "perumbavoor", "kothamangalam", "kattappana"],
+      "stop_distances_km": [0, 13, 33, 48, 66, 135],
+      "departures": ["05:50", "07:20"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_KALOOR_MUVA_ORD",
+      "number": "KSRTC Kaloor-Muvattupuzha",
+      "name": { "en": "Kaloor – Muvattupuzha Ordinary", "ml": "കാലൂർ – മൂവാറ്റുപ്പുഴ ഓർഡിനറി", "hi": "कालूर – मुवातुपुझा ऑर्डिनरी" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 20,
+      "stops": ["kaloor", "kakkanad", "vazhakulam", "muvattupuzha"],
+      "stop_distances_km": [0, 12, 32, 54],
+      "departures": ["08:25", "08:50", "09:05", "09:20", "10:45", "11:25", "11:40", "12:10", "12:50", "13:05", "13:25", "13:50", "13:55", "14:20", "15:15", "15:25", "16:10", "17:25", "18:00", "18:20", "18:30", "19:50", "20:00"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_VYTILLA_KAKKANAD_ORD",
+      "number": "KSRTC Chellanam-Kakkanad",
+      "name": { "en": "Chellanam – Kakkanad via Vytilla", "ml": "ചെല്ലാനം – കക്കനാട് വൈറ്റില വഴി", "hi": "चेल्लानम – काक्कनाड वायतिल्ला के रास्ते" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 45,
+      "stops": ["chellanam", "thoppumpady", "thevara", "vytilla", "kakkanad"],
+      "stop_distances_km": [0, 10, 14, 18, 29],
+      "departures": ["08:35", "09:40", "16:25", "16:30"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_THODU_FP",
+      "number": "KSRTC Thodupuzha FP",
+      "name": { "en": "Ernakulam – Thodupuzha Fast Passenger", "ml": "എറണാകുളം – തൊടുപുഴ ഫാസ്റ്റ്", "hi": "एर्नाकुलम – थोडुपुझा फास्ट" },
+      "type": "Fast Passenger", "operator": "KSRTC", "frequency_mins": 60,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "vazhakulam", "perumbavoor", "kothamangalam", "thodupuzha"],
+      "stop_distances_km": [0, 15, 35, 50, 68, 95],
+      "departures": ["08:45", "11:30", "13:10"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_MUVA_FP",
+      "number": "KSRTC Muvattupuzha FP",
+      "name": { "en": "Ernakulam – Muvattupuzha Fast Passenger", "ml": "എറണാകുളം – മൂവാറ്റുപ്പുഴ ഫാസ്റ്റ്", "hi": "एर्नाकुलम – मुवातुपुझा फास्ट" },
+      "type": "Fast Passenger", "operator": "KSRTC", "frequency_mins": 45,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "vazhakulam", "muvattupuzha"],
+      "stop_distances_km": [0, 15, 35, 57],
+      "departures": ["09:20", "13:00", "20:20"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_JETTY_KAKKANAD_ORD",
+      "number": "KSRTC FortKochi-Kakkanad",
+      "name": { "en": "Fort Kochi Jetty – Kakkanad", "ml": "ഫോർട്ട് കൊച്ചി – കക്കനാട്", "hi": "फोर्ट कोच्चि – काक्कनाड" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 60,
+      "stops": ["ernakulam_jetty", "ernakulam_ksrtc", "kakkanad"],
+      "stop_distances_km": [0, 5, 20],
+      "departures": ["09:50", "13:50", "17:20"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_PATHA_FP",
+      "number": "KSRTC Pathanamthitta FP",
+      "name": { "en": "Ernakulam – Pathanamthitta Fast Passenger", "ml": "എറണാകുളം – പത്തനംതിട്ട ഫാസ്റ്റ്", "hi": "एर्नाकुलम – पत्तनमथिट्टा फास्ट" },
+      "type": "Fast Passenger", "operator": "KSRTC", "frequency_mins": 60,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "muvattupuzha", "pathanamthitta"],
+      "stop_distances_km": [0, 15, 57, 110],
+      "departures": ["11:40", "12:00", "13:30", "14:35"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_NEDUMKAN_FP",
+      "number": "KSRTC Nedumkandam FP",
+      "name": { "en": "Ernakulam – Nedumkandam Fast Passenger", "ml": "എറണാകുളം – നെടുംകണ്ടം ഫാസ്റ്റ്", "hi": "एर्नाकुलम – नेदुमकण्डम फास्ट" },
+      "type": "Fast Passenger", "operator": "KSRTC", "frequency_mins": 120,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "kothamangalam", "kattappana", "nedumkandam"],
+      "stop_distances_km": [0, 15, 68, 135, 165],
+      "departures": ["13:30"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_KALOOR_THODU_ORD",
+      "number": "KSRTC Kaloor-Thodupuzha",
+      "name": { "en": "Kaloor – Thodupuzha Ordinary", "ml": "കാലൂർ – തൊടുപുഴ ഓർഡിനറി", "hi": "कालूर – थोडुपुझा ऑर्डिनरी" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 60,
+      "stops": ["kaloor", "kakkanad", "kothamangalam", "thodupuzha"],
+      "stop_distances_km": [0, 12, 60, 87],
+      "departures": ["12:30", "16:25"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_THODUPUZHA_LSO",
+      "number": "KSRTC EKM-Thodupuzha LSO",
+      "name": { "en": "Ernakulam – Thodupuzha Limited Stop", "ml": "എറണാകുളം – തൊടുപുഴ ലിമിറ്റഡ്", "hi": "एर्नाकुलम – थोडुपुझा लिमिटेड" },
+      "type": "Limited Stop Ordinary", "operator": "KSRTC", "frequency_mins": 60,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "kothamangalam", "thodupuzha"],
+      "stop_distances_km": [0, 15, 62, 89],
+      "departures": ["17:00"],
+      "source": "kbuses.in"
+    },
+    {
+      "id": "KBUS_EKM_PERUMBA_ORD",
+      "number": "KSRTC EKM-Perumbavoor",
+      "name": { "en": "Ernakulam – Perumbavoor Ordinary (via Kakkanad)", "ml": "എറണാകുളം – പെരുമ്പാവൂർ ഓർഡിനറി", "hi": "एर्नाकुलम – पेरुम्बावूर ऑर्डिनरी" },
+      "type": "Ordinary", "operator": "KSRTC", "frequency_mins": 30,
+      "stops": ["ernakulam_ksrtc", "kakkanad", "vazhakulam", "perumbavoor"],
+      "stop_distances_km": [0, 15, 35, 50],
+      "departures": ["10:00"],
+      "source": "kbuses.in"
+    },
+
+    {
+      "id": "PVTBUS_EKM_ALUVA_KAKKANAD",
+      "number": "Private Aluva-Kakkanad",
+      "name": { "en": "Aluva – Kakkanad Private Ordinary", "ml": "ആലുവ – കക്കനാട് പ്രൈവറ്റ്", "hi": "अलुवा – काक्कनाड प्राइवेट" },
+      "type": "Private Ordinary", "operator": "Private", "frequency_mins": 30,
+      "stops": ["aluva", "kalamassery", "kakkanad"],
+      "stop_distances_km": [0, 8, 16],
+      "departures": ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT)"
+    },
+    {
+      "id": "PVTBUS_EKM_VYTILLA_MUVA",
+      "number": "Private Vytilla-Muvattupuzha",
+      "name": { "en": "Vytilla – Muvattupuzha Private Fast", "ml": "വൈറ്റില – മൂവാറ്റുപ്പുഴ പ്രൈവറ്റ്", "hi": "वायतिल्ला – मुवातुपुझा प्राइवेट" },
+      "type": "Private Fast", "operator": "Private", "frequency_mins": 20,
+      "stops": ["vytilla", "tripunithura", "muvattupuzha"],
+      "stop_distances_km": [0, 9, 42],
+      "departures": ["05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT)"
+    },
+    {
+      "id": "PVTBUS_EKM_KAKKANAD_ERNAKULAM",
+      "number": "Private Kakkanad-EKM",
+      "name": { "en": "Kakkanad – Ernakulam Private Ordinary", "ml": "കക്കനാട് – എറണാകുളം പ്രൈവറ്റ്", "hi": "काक्कनाड – एर्नाकुलम प्राइवेट" },
+      "type": "Private Ordinary", "operator": "Private", "frequency_mins": 15,
+      "stops": ["kakkanad", "vytilla", "ernakulam_south"],
+      "stop_distances_km": [0, 11, 20],
+      "departures": ["06:00", "06:15", "06:30", "07:00", "07:15", "07:30", "08:00", "08:30", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+      "source": "amith-vp/Kerala-Private-Bus-Timing (MIT)"
+    }
+  ]
+}
