@@ -22,15 +22,18 @@
 // ═══════════════════════════════════════════════════════════
 const DataLayer = (() => {
   let stops = null, routes = null, fareMatrix = null, aliases = null, entities = null;
+  let datasetMeta = null;
+  let _loadError = null;
 
   async function loadAll() {
     try {
-      const [sRes, rRes, fRes, aRes, eRes] = await Promise.all([
+      const [sRes, rRes, fRes, aRes, eRes, mRes] = await Promise.all([
         fetch('data/stops.json'),
         fetch('data/routes.json'),
         fetch('data/fare_stages.json'),
         fetch('data/aliases.json'),
         fetch('data/entities.json'),
+        fetch('data/dataset_meta.json').catch(() => null),
       ]);
       stops = await sRes.json();
       routes = (await rRes.json()).routes;
@@ -39,9 +42,12 @@ const DataLayer = (() => {
       aliases = aliasData.aliases;
       const entityData = await eRes.json();
       entities = entityData;
+      if (mRes && mRes.ok) datasetMeta = await mRes.json();
+      console.info('[DataLayer] Loaded:', { stops: Object.keys(stops).length, routes: routes.length, fareStages: Object.keys(fareMatrix).length, version: datasetMeta?.version });
       return true;
     } catch (e) {
-      console.error('DataLayer load failed:', e);
+      console.error('[DataLayer] Load failed:', e);
+      _loadError = e.message || 'Unknown error';
       return false;
     }
   }
@@ -51,6 +57,8 @@ const DataLayer = (() => {
   const getAllRoutes = () => routes ?? [];
   const getFareMatrix = (routeId) => fareMatrix?.[routeId] ?? {};
   const getAllAliases = () => aliases ?? [];
+  const getEntities = () => entities;
+  const getLoadError = () => _loadError;
 
   function getStopName(id, lang = 'en') {
     const s = getStop(id);
@@ -63,9 +71,22 @@ const DataLayer = (() => {
     return s?.landmark ? (s.landmark[lang] || s.landmark.en) : null;
   }
 
-  const getEntities = () => entities;
+  // Dataset metadata & provenance
+  function getVersion() {
+    return {
+      version: datasetMeta?.version || '1.0.0',
+      lastUpdated: datasetMeta?.last_updated || 'unknown',
+      sources: datasetMeta?.sources || [],
+      coverage: datasetMeta?.coverage || {},
+      limitations: datasetMeta?.limitations || [],
+    };
+  }
 
-  return { loadAll, getStop, getAllStops, getAllRoutes, getFareMatrix, getAllAliases, getStopName, getLandmark, getEntities };
+  function getDataSource(sourceId) {
+    return (datasetMeta?.sources || []).find(s => s.id === sourceId) || null;
+  }
+
+  return { loadAll, getStop, getAllStops, getAllRoutes, getFareMatrix, getAllAliases, getStopName, getLandmark, getEntities, getVersion, getDataSource, getLoadError };
 })();
 
 // ═══════════════════════════════════════════════════════════
@@ -537,7 +558,9 @@ const FareEngine = (() => {
     const matrix = DataLayer.getFareMatrix(routeId);
     const key = `${fromId}-${toId}`;
     const rkey = `${toId}-${fromId}`;
-    return matrix[key] || matrix[rkey] || null;
+    const result = matrix[key] || matrix[rkey] || null;
+    if (result) return { ...result, isEstimate: false };
+    return null;
   }
 
   function estimateFare(routeId, fromId, toId) {
@@ -549,10 +572,10 @@ const FareEngine = (() => {
     const fi = route.stops.indexOf(fromId);
     const ti = route.stops.indexOf(toId);
     if (fi === -1 || ti === -1) return null;
-    const km = Math.abs((route.stop_distances_km[ti] || 0) - (route.stop_distances_km[fi] || 0));
+    const km = Math.abs((route.stop_distances_km?.[ti] || 0) - (route.stop_distances_km?.[fi] || 0));
     const stages = Math.max(1, Math.ceil(km / 3));
     const fare = 7 + (stages - 1) * 3;
-    return { stages, fare_min: fare, fare_max: fare + 4 };
+    return { stages, fare_min: fare, fare_max: fare + 4, isEstimate: true };
   }
 
   return { estimateFare };
@@ -1105,6 +1128,7 @@ const UI = (() => {
     hideSttConfirm();
     if (!sttFinalText) return;
     const parsed = IntentParser.parse(sttFinalText);
+    console.info('[Voice Pipeline] STT →', sttFinalText, '→ Parsed:', parsed);
     if (parsed.detectedLang && parsed.detectedLang !== lang) setLang(parsed.detectedLang);
     if (parsed.fromStop) { resolvedFrom = parsed.fromStop; $('fromInput').value = formatStopName(parsed.fromStop); }
     if (parsed.toStop) { resolvedTo = parsed.toStop; $('toInput').value = formatStopName(parsed.toStop); }
@@ -1114,23 +1138,38 @@ const UI = (() => {
   }
 
   // ── Search ───────────────────────────────────────────────
-  function runSearch() {
+  async function runSearch() {
     if (!resolvedFrom && $('fromInput').value.trim())
       resolvedFrom = IntentParser.fuzzyMatchStop($('fromInput').value.trim(), lang);
     if (!resolvedTo && $('toInput').value.trim())
       resolvedTo = IntentParser.fuzzyMatchStop($('toInput').value.trim(), lang);
+
+    // Auto-GPS boarding: if FROM is empty but destination is set, try GPS
+    if (!resolvedFrom && resolvedTo) {
+      try {
+        const pos = await GeoEngine.getCurrentPosition();
+        const boarding = GeoEngine.getBestBoardingStops(pos.lat, pos.lon, resolvedTo, 1);
+        if (boarding.length > 0) {
+          resolvedFrom = boarding[0].id;
+          $('fromInput').value = formatStopName(resolvedFrom);
+          console.info('[GPS Auto-Board] Selected:', resolvedFrom, 'dist:', Math.round(boarding[0].distance), 'm');
+        }
+      } catch (_) { /* GPS unavailable, fall through to error */ }
+    }
 
     if (!resolvedFrom || !resolvedTo) { showError('Please enter both boarding stop and destination.'); return; }
     if (resolvedFrom === resolvedTo) { showError(t('sameStop', lang)); return; }
 
     hideError();
     showLoading(true);
+    console.info('[RouteEngine] Searching:', resolvedFrom, '→', resolvedTo);
 
     setTimeout(() => {
       const journey = RouteEngine.findJourney(resolvedFrom, resolvedTo);
       showLoading(false);
-      if (!journey || journey.type === 'not_found') { showError(t('notFound', lang)); return; }
-      if (journey.type === 'same_stop') { showError(t('sameStop', lang)); return; }
+      console.info('[RouteEngine] Result:', journey?.length, 'options, type:', journey?.[0]?.type);
+      if (!journey || journey.length === 0 || journey[0]?.type === 'not_found') { showError(t('notFound', lang)); return; }
+      if (journey[0]?.type === 'same_stop') { showError(t('sameStop', lang)); return; }
 
       lastJourney = journey;
       lastJourneyFrom = resolvedFrom;
@@ -1247,8 +1286,8 @@ const UI = (() => {
     }
 
     return `
-      <div class="route-option-card result-card-inner" data-idx="${cardIdx}" style="${isTopOption ? 'border: 2px solid #16a34a;' : 'margin-top: 1rem; opacity: 0.95;'}">
-        ${isTopOption ? '<div style="background:#16a34a;color:white;font-size:0.75rem;font-weight:700;text-align:center;padding:4px;border-radius:10px 10px 0 0;margin:-1rem -1rem 1rem -1rem;">RECOMMENDED OPTION</div>' : ''}
+      <div class="route-option-card result-card-inner" data-idx="${cardIdx}" style="${isTopOption ? 'border: 2px solid var(--accent);' : 'margin-top: 1rem; opacity: 0.95;'}">
+        ${isTopOption ? '<div style="background:var(--accent);color:white;font-size:0.75rem;font-weight:700;text-align:center;padding:4px;border-radius:10px 10px 0 0;margin:-1rem -1rem 1rem -1rem;">RECOMMENDED OPTION</div>' : ''}
         <div class="rc-head">
           <span class="rc-bus-badge">🚌 Bus ${route.number}</span>
           <span class="rc-type">${route.operator} · ${route.type}</span>
@@ -1273,7 +1312,7 @@ const UI = (() => {
           </div>
           <div class="rc-row">
             <span class="rc-icon">💰</span>
-            <div><div class="rc-lbl">${t('fareLbl', lang)}</div><div class="rc-fare">₹${fare.fare_min}–₹${fare.fare_max}</div></div>
+            <div><div class="rc-lbl">${t('fareLbl', lang)}</div><div class="rc-fare">${fare.isEstimate ? '≈ ' : ''}₹${fare.fare_min}–₹${fare.fare_max}${fare.isEstimate ? ' <span style="font-size:.7rem;color:var(--text3);font-weight:400;">(distance estimate)</span>' : ''}</div></div>
           </div>` : ''}
           <div class="rc-row">
             <span class="rc-icon">⏱️</span>
@@ -1631,7 +1670,12 @@ const UI = (() => {
   // ── Init ─────────────────────────────────────────────────
   async function init() {
     const ok = await DataLayer.loadAll();
-    if (!ok) { alert('Failed to load data. Please refresh.'); return; }
+    if (!ok) {
+      const err = DataLayer.getLoadError() || 'Unknown error';
+      console.error('[Init] DataLayer failed:', err);
+      showError(`Data load failed: ${err}. Some features may not work. Try refreshing.`);
+      // Continue with degraded mode instead of blocking
+    }
 
     // Screen 1: Language select
     document.querySelectorAll('.lang-option').forEach(btn => {
@@ -1732,6 +1776,13 @@ const UI = (() => {
 
     // Default translations (EN)
     setLang('en');
+
+    // Dataset version footer (Task 4)
+    const vf = $('datasetVersionFooter');
+    if (vf) {
+      const v = DataLayer.getVersion();
+      vf.innerHTML = `<span>Dataset v${v.version} · Updated ${v.lastUpdated} · ${v.coverage.stops_count || '?'} stops · ${v.coverage.routes_count || '?'} routes</span>`;
+    }
   }
 
   return { init };

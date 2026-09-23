@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ANAVANDI — System Diagnostics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{--green:#2f9e44;--red:#e03131;--amber:#f59f00;--blue:#1864ab;--bg:#f0f4f8;--surface:#fff;--border:#cddbec;--text1:#102a43;--text2:#334e68;--text3:#829ab1;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);padding:1.5rem;max-width:900px;margin:0 auto;}
+  h1{font-size:1.5rem;font-weight:800;margin-bottom:.25rem;}
+  .subtitle{font-size:.85rem;color:var(--text3);margin-bottom:1.5rem;}
+  .section{margin-bottom:1.5rem;}
+  .section-title{font-size:.95rem;font-weight:700;margin-bottom:.75rem;color:var(--blue);}
+  .check-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:.5rem;}
+  .check-icon{font-size:1.2rem;flex-shrink:0;width:28px;text-align:center;}
+  .check-label{flex:1;font-size:.85rem;font-weight:500;}
+  .check-status{font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;}
+  .check-status.pass{background:#d3f9d8;color:var(--green);}
+  .check-status.fail{background:#ffe3e3;color:var(--red);}
+  .check-status.warn{background:#ffec99;color:var(--amber);}
+  .check-status.info{background:#d9e8f5;color:var(--blue);}
+  .dep-tag{font-size:.65rem;color:var(--text3);margin-top:.15rem;display:block;}
+  .meta-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;font-size:.82rem;color:var(--text2);margin-bottom:1rem;white-space:pre-wrap;font-family:monospace;}
+  .btn{padding:.5rem 1rem;background:var(--blue);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:.82rem;cursor:pointer;margin-top:.5rem;}
+  .btn:hover{opacity:.9;}
+</style>
+</head>
+<body>
+
+<h1>🔧 ANAVANDI — System Diagnostics</h1>
+<p class="subtitle">Feature availability &amp; offline readiness</p>
+
+<div class="section">
+  <div class="section-title">Core Data</div>
+  <div id="dataChecks"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Browser APIs</div>
+  <div id="apiChecks"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Service Worker &amp; Cache</div>
+  <div id="swChecks"></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Dataset Metadata</div>
+  <div class="meta-box" id="metaBox">Loading...</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Feature Classification</div>
+  <div id="featureClass"></div>
+</div>
+
+<button class="btn" onclick="runDiagnostics()">🔄 Re-run Diagnostics</button>
+
+<script>
+function checkRow(icon, label, status, statusClass, dep) {
+  return `<div class="check-row">
+    <span class="check-icon">${icon}</span>
+    <div><span class="check-label">${label}</span>${dep ? `<span class="dep-tag">${dep}</span>` : ''}</div>
+    <span class="check-status ${statusClass}">${status}</span>
+  </div>`;
+}
+
+async function runDiagnostics() {
+  // 1. Data checks
+  const dataEl = document.getElementById('dataChecks');
+  let dataHtml = '';
+  const files = [
+    { name: 'stops.json', path: 'data/stops.json' },
+    { name: 'routes.json', path: 'data/routes.json' },
+    { name: 'fare_stages.json', path: 'data/fare_stages.json' },
+    { name: 'aliases.json', path: 'data/aliases.json' },
+    { name: 'entities.json', path: 'data/entities.json' },
+    { name: 'dataset_meta.json', path: 'data/dataset_meta.json' },
+  ];
+  for (const f of files) {
+    try {
+      const res = await fetch(f.path);
+      const json = await res.json();
+      const size = JSON.stringify(json).length;
+      dataHtml += checkRow('📄', f.name, `OK (${(size/1024).toFixed(1)}KB)`, 'pass', 'Fully Local');
+    } catch (e) {
+      dataHtml += checkRow('📄', f.name, 'MISSING', 'fail', e.message);
+    }
+  }
+  dataEl.innerHTML = dataHtml;
+
+  // 2. API checks
+  const apiEl = document.getElementById('apiChecks');
+  let apiHtml = '';
+  apiHtml += checkRow('🎤', 'SpeechRecognition (STT)',
+    (window.SpeechRecognition || window.webkitSpeechRecognition) ? 'Available' : 'Not Available',
+    (window.SpeechRecognition || window.webkitSpeechRecognition) ? 'warn' : 'fail',
+    'Internet Required (Chrome/Edge)');
+  apiHtml += checkRow('🔊', 'SpeechSynthesis (TTS)',
+    window.speechSynthesis ? `Available (${speechSynthesis.getVoices().length} voices)` : 'Not Available',
+    window.speechSynthesis ? 'pass' : 'fail',
+    'Device/OS Dependent — works offline if OS voices installed');
+  apiHtml += checkRow('📍', 'Geolocation API',
+    navigator.geolocation ? 'Available' : 'Not Available',
+    navigator.geolocation ? 'pass' : 'fail',
+    'Device Dependent — requires GPS chip for outdoor accuracy');
+  apiHtml += checkRow('📶', 'Network Status',
+    navigator.onLine ? 'Online' : 'Offline',
+    navigator.onLine ? 'info' : 'warn',
+    navigator.onLine ? 'Connected' : 'App should work from cache');
+  apiHtml += checkRow('📳', 'Vibration API',
+    navigator.vibrate ? 'Available' : 'Not Available',
+    navigator.vibrate ? 'pass' : 'warn',
+    'Mobile only — used for destination alerts');
+  apiEl.innerHTML = apiHtml;
+
+  // 3. Service Worker
+  const swEl = document.getElementById('swChecks');
+  let swHtml = '';
+  if ('serviceWorker' in navigator) {
+    const reg = await navigator.serviceWorker.getRegistration();
+    swHtml += checkRow('⚙️', 'Service Worker',
+      reg ? `Active (scope: ${reg.scope})` : 'Not Registered',
+      reg ? 'pass' : 'warn',
+      'Fully Local');
+    if (reg) {
+      try {
+        const cacheNames = await caches.keys();
+        swHtml += checkRow('💾', 'Cache Storage',
+          `${cacheNames.length} cache(s): ${cacheNames.join(', ')}`,
+          'pass', 'Fully Local');
+        for (const cn of cacheNames) {
+          const cache = await caches.open(cn);
+          const keys = await cache.keys();
+          swHtml += checkRow('📦', `Cache "${cn}"`,
+            `${keys.length} assets cached`,
+            'pass', 'Offline shell + data');
+        }
+      } catch (e) {
+        swHtml += checkRow('💾', 'Cache Storage', 'Error: ' + e.message, 'fail');
+      }
+    }
+  } else {
+    swHtml += checkRow('⚙️', 'Service Worker', 'Not Supported', 'fail');
+  }
+  swEl.innerHTML = swHtml;
+
+  // 4. Metadata
+  const metaEl = document.getElementById('metaBox');
+  try {
+    const res = await fetch('data/dataset_meta.json');
+    const meta = await res.json();
+    metaEl.textContent = JSON.stringify(meta, null, 2);
+  } catch (e) {
+    metaEl.textContent = 'Could not load dataset_meta.json: ' + e.message;
+  }
+
+  // 5. Feature classification
+  const fcEl = document.getElementById('featureClass');
+  const features = [
+    { name: 'Route Calculation (BFS)', cat: 'Fully Local', icon: '🚌' },
+    { name: 'Fare Estimation', cat: 'Fully Local', icon: '💰' },
+    { name: 'Place/Alias Resolution', cat: 'Fully Local', icon: '🔍' },
+    { name: 'Intent Parsing (NLP)', cat: 'Fully Local', icon: '🧠' },
+    { name: 'Autocomplete', cat: 'Fully Local', icon: '📝' },
+    { name: 'Journey Tracking (GPS)', cat: 'Device Dependent', icon: '📍' },
+    { name: 'Destination Alerts', cat: 'Device Dependent', icon: '🔔' },
+    { name: 'Text-to-Speech (TTS)', cat: 'Device Dependent', icon: '🔊' },
+    { name: 'Speech-to-Text (STT)', cat: 'Internet Required', icon: '🎤' },
+    { name: 'Google Fonts', cat: 'Cached on first load', icon: '🔤' },
+  ];
+  fcEl.innerHTML = features.map(f => {
+    const cls = f.cat === 'Fully Local' ? 'pass' : f.cat === 'Device Dependent' ? 'warn' : 'info';
+    return checkRow(f.icon, f.name, f.cat, cls);
+  }).join('');
+}
+
+// Auto-run
+window.addEventListener('load', () => {
+  setTimeout(runDiagnostics, 500);
+});
+</script>
+</body>
+</html>
