@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ANAVANDI — Database Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<style>
+  :root{--navy:#1864ab;--navy-dark:#0f4c81;--red:#c92a2a;--white:#fff;--bg:#f0f4f8;--surface:#fff;--border:#cddbec;--text1:#102a43;--text2:#334e68;--text3:#829ab1;--green:#2f9e44;--amber:#f59f00;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-height:100vh;}
+
+  /* Header */
+  .header{background:linear-gradient(135deg,var(--navy),var(--navy-dark));color:var(--white);padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 2px 12px rgba(0,0,0,.15);}
+  .header h1{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;}
+  .header .badge{background:rgba(255,255,255,.2);padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:600;}
+  .header p{font-size:.82rem;opacity:.85;margin-top:.25rem;}
+
+  /* Layout */
+  .container{max-width:1200px;margin:0 auto;padding:1.5rem;}
+
+  /* Stats bar */
+  .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-bottom:1.5rem;}
+  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
+  .stat-num{font-size:1.5rem;font-weight:800;color:var(--navy);}
+  .stat-lbl{font-size:.7rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem;}
+
+  /* Schema section */
+  .section{margin-bottom:1.5rem;}
+  .section-title{font-size:1rem;font-weight:700;margin-bottom:.75rem;color:var(--navy);display:flex;align-items:center;gap:.5rem;}
+
+  /* ER Diagram */
+  .er-diagram{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;overflow-x:auto;margin-bottom:1.5rem;}
+  .er-diagram pre{font-family:'Courier New',monospace;font-size:.75rem;line-height:1.6;color:var(--text1);}
+
+  /* Table cards */
+  .table-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem;margin-bottom:1.5rem;}
+  .table-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .2s;}
+  .table-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
+  .tc-head{background:var(--navy);color:var(--white);padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;}
+  .tc-name{font-weight:700;font-size:.9rem;}
+  .tc-count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:12px;font-size:.7rem;}
+  .tc-body{padding:.75rem 1rem;}
+  .col-row{display:flex;align-items:center;gap:.5rem;padding:.35rem 0;border-bottom:1px solid var(--bg);font-size:.8rem;}
+  .col-row:last-child{border-bottom:none;}
+  .col-icon{width:20px;text-align:center;font-size:.65rem;}
+  .col-name{font-weight:600;flex:1;}
+  .col-type{color:var(--text3);font-size:.72rem;font-family:monospace;}
+  .pk{color:var(--amber);font-weight:700;}
+  .fk{color:var(--green);font-weight:600;}
+
+  /* Query section */
+  .query-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+  .query-box{display:flex;flex-direction:column;gap:.75rem;}
+  .query-input{width:100%;min-height:80px;font-family:'Courier New',monospace;font-size:.85rem;padding:.75rem;border:2px solid var(--border);border-radius:8px;resize:vertical;outline:none;transition:border-color .2s;}
+  .query-input:focus{border-color:var(--navy);}
+  .query-btns{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .btn{padding:.5rem 1rem;border:none;border-radius:8px;font-weight:600;font-size:.8rem;cursor:pointer;transition:all .2s;}
+  .btn-primary{background:var(--navy);color:var(--white);}
+  .btn-primary:hover{background:var(--navy-dark);}
+  .btn-secondary{background:var(--bg);color:var(--text2);border:1px solid var(--border);}
+  .btn-secondary:hover{background:#dbe4ef;}
+
+  /* Results */
+  .results-box{margin-top:1rem;overflow-x:auto;max-height:400px;overflow-y:auto;}
+  .results-table{width:100%;border-collapse:collapse;font-size:.78rem;}
+  .results-table th{background:var(--navy);color:var(--white);padding:.5rem .75rem;text-align:left;font-weight:600;position:sticky;top:0;z-index:1;}
+  .results-table td{padding:.45rem .75rem;border-bottom:1px solid var(--bg);}
+  .results-table tr:hover td{background:#f0f6ff;}
+  .results-info{font-size:.75rem;color:var(--text3);margin-top:.5rem;font-style:italic;}
+  .error-msg{color:var(--red);font-weight:600;padding:.75rem;background:#fff5f5;border-radius:8px;font-size:.85rem;}
+
+  /* Prebuilt queries */
+  .preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.5rem;margin-bottom:1rem;}
+  .preset-btn{text-align:left;padding:.6rem .8rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:.78rem;}
+  .preset-btn:hover{background:#dbe4ef;border-color:var(--navy);}
+  .preset-btn strong{display:block;font-size:.8rem;color:var(--navy);margin-bottom:.15rem;}
+  .preset-btn span{color:var(--text3);font-size:.7rem;}
+
+  /* Methodology */
+  .methodology{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+  .methodology h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.75rem;}
+  .flow-step{display:flex;align-items:flex-start;gap:.75rem;padding:.5rem 0;border-left:3px solid var(--navy);padding-left:1rem;margin-left:.5rem;margin-bottom:.5rem;}
+  .flow-step .step-num{background:var(--navy);color:var(--white);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;}
+  .flow-step .step-text{font-size:.82rem;line-height:1.5;}
+  .flow-step .step-text strong{color:var(--navy);}
+
+  @media(max-width:640px){
+    .header{padding:1rem;}
+    .container{padding:1rem;}
+    .table-grid{grid-template-columns:1fr;}
+    .preset-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🗄️ ANAVANDI Database Explorer <span class="badge">SQLite/WASM</span></h1>
+    <p>Relational database running entirely in your browser · Zero backend required</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-card"><div class="stat-num" id="sStops">—</div><div class="stat-lbl">Stops</div></div>
+    <div class="stat-card"><div class="stat-num" id="sRoutes">—</div><div class="stat-lbl">Routes</div></div>
+    <div class="stat-card"><div class="stat-num" id="sRouteStops">—</div><div class="stat-lbl">Route–Stop Links</div></div>
+    <div class="stat-card"><div class="stat-num" id="sFares">—</div><div class="stat-lbl">Fare Stages</div></div>
+    <div class="stat-card"><div class="stat-num" id="sAliases">—</div><div class="stat-lbl">Aliases</div></div>
+    <div class="stat-card"><div class="stat-num" id="sEntities">—</div><div class="stat-lbl">Entities</div></div>
+    <div class="stat-card"><div class="stat-num" id="sTables">7</div><div class="stat-lbl">Tables</div></div>
+  </div>
+
+  <!-- Methodology -->
+  <div class="methodology">
+    <h3>📐 How Data Flows: JSON → SQLite → App</h3>
+    <div class="flow-step"><span class="step-num">1</span><div class="step-text"><strong>Collection</strong> — Data gathered from KochiTransport GTFS, kbuses.in (KSRTC schedules), Kerala Private Bus RTI, and manual curation</div></div>
+    <div class="flow-step"><span class="step-num">2</span><div class="step-text"><strong>Normalization</strong> — Raw data cleaned into canonical JSON files (stops.json, routes.json, fare_stages.json, aliases.json, entities.json)</div></div>
+    <div class="flow-step"><span class="step-num">3</span><div class="step-text"><strong>Database Build</strong> — <code>build_database.py</code> converts JSON into relational SQLite database (anavandi.db) with 7 normalized tables + indices</div></div>
+    <div class="flow-step"><span class="step-num">4</span><div class="step-text"><strong>Browser Loading</strong> — sql.js (SQLite compiled to WebAssembly) loads the .db file in the browser. No server needed. Fully offline-capable</div></div>
+    <div class="flow-step"><span class="step-num">5</span><div class="step-text"><strong>Application</strong> — The PWA currently reads JSON directly (faster for 31 stops); the SQLite path is ready for full Kerala (~3,000+ stops)</div></div>
+  </div>
+
+  <!-- ER Diagram -->
+  <div class="section">
+    <div class="section-title">🔗 Entity-Relationship Diagram</div>
+    <div class="er-diagram">
+<pre>
+┌──────────────┐       ┌───────────────────┐       ┌──────────────┐
+│   STOPS      │       │   ROUTE_STOPS     │       │   ROUTES     │
+├──────────────┤       ├───────────────────┤       ├──────────────┤
+│ ● stop_id PK │◄──────│ ○ stop_id    FK   │──────►│ ● route_id PK│
+│   name_en    │       │ ○ route_id   FK   │       │   route_number│
+│   name_ml    │       │   stop_sequence   │       │   name_en    │
+│   name_hi    │       │   distance_km     │       │   route_type │
+│   latitude   │       └───────────────────┘       │   operator   │
+│   longitude  │                                    │   frequency  │
+│   landmark_* │       ┌───────────────────┐       └──────────────┘
+└──────┬───────┘       │   FARE_STAGES     │              │
+       │               ├───────────────────┤              │
+       │               │ ○ route_id   FK   │──────────────┘
+       │               │ ○ from_stop       │
+       │               │ ○ to_stop         │
+       │               │   stages          │
+       │               │   fare_min/max    │
+       │               └───────────────────┘
+       │
+       │         ┌──────────────────┐       ┌──────────────────┐
+       └─────────│    ALIASES       │       │   ENTITIES       │
+                 ├──────────────────┤       ├──────────────────┤
+                 │ ○ stop_id  FK    │       │ ● entity_id PK   │
+                 │   alias_text     │       │   name_en        │
+                 │   language       │       │   entity_type    │
+                 └──────────────────┘       │   lat / lon      │
+                                            │   mapped_stop_id │
+                 ┌──────────────────┐       └──────────────────┘
+                 │  DATA_SOURCES    │
+                 ├──────────────────┤
+                 │ ● source_id PK   │
+                 │   source_name    │
+                 │   url / version  │
+                 │   validation     │
+                 └──────────────────┘
+</pre>
+    </div>
+  </div>
+
+  <!-- Schema Cards -->
+  <div class="section">
+    <div class="section-title">📋 Table Schema</div>
+    <div class="table-grid" id="tableGrid"></div>
+  </div>
+
+  <!-- Query Section -->
+  <div class="section">
+    <div class="section-title">⚡ Live SQL Query Console</div>
+    <div class="query-section">
+      <p style="font-size:.82rem;color:var(--text3);margin-bottom:.75rem;">Run SQL queries directly against the SQLite database in your browser. Try the presets below or write your own.</p>
+
+      <div class="section-title" style="font-size:.85rem;">📌 Preset Queries</div>
+      <div class="preset-grid" id="presetGrid"></div>
+
+      <div class="query-box">
+        <textarea class="query-input" id="queryInput" placeholder="SELECT * FROM stops LIMIT 10;">SELECT * FROM stops LIMIT 10;</textarea>
+        <div class="query-btns">
+          <button class="btn btn-primary" onclick="runQuery()">▶ Run Query</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('queryInput').value='';document.getElementById('resultsBox').innerHTML='';">Clear</button>
+        </div>
+      </div>
+
+      <div class="results-box" id="resultsBox"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let db = null;
+
+const PRESETS = [
+  { name: "All stops with coordinates", sql: "SELECT stop_id, name_en, name_ml, latitude, longitude FROM stops ORDER BY name_en;", desc: "View all bus stops with their multilingual names" },
+  { name: "All routes by operator", sql: "SELECT route_id, route_number, name_en, operator, route_type, frequency_mins FROM routes ORDER BY operator, route_number;", desc: "View routes grouped by KSRTC / Private / City Bus" },
+  { name: "Route stops in order (Bus 55A)", sql: "SELECT rs.stop_sequence, s.name_en, s.name_ml, rs.distance_km FROM route_stops rs JOIN stops s ON rs.stop_id = s.stop_id WHERE rs.route_id = 'EKM_55A' ORDER BY rs.stop_sequence;", desc: "See the exact stop sequence for a specific route" },
+  { name: "Fare lookup: Ernakulam → Aluva", sql: "SELECT f.route_id, r.route_number, r.name_en, f.stages, f.fare_min, f.fare_max FROM fare_stages f JOIN routes r ON f.route_id = r.route_id WHERE f.from_stop LIKE '%ernakulam%' AND f.to_stop LIKE '%aluva%';", desc: "Find exact fare from the stage matrix" },
+  { name: "Search aliases for 'water'", sql: "SELECT a.alias_text, a.language, s.name_en, s.name_ml FROM aliases a JOIN stops s ON a.stop_id = s.stop_id WHERE a.alias_text LIKE '%water%';", desc: "How alias search resolves user input" },
+  { name: "Routes through Vytilla hub", sql: "SELECT r.route_number, r.name_en, r.operator, rs.stop_sequence FROM route_stops rs JOIN routes r ON rs.route_id = r.route_id WHERE rs.stop_id = 'vytilla' ORDER BY r.route_number;", desc: "All buses passing through Vytilla Mobility Hub" },
+  { name: "Stops with most routes", sql: "SELECT s.name_en, COUNT(rs.route_id) as route_count FROM route_stops rs JOIN stops s ON rs.stop_id = s.stop_id GROUP BY rs.stop_id ORDER BY route_count DESC LIMIT 10;", desc: "Busiest stops by number of routes" },
+  { name: "Entity hierarchy", sql: "SELECT entity_id, name_en, entity_type, mapped_stop_id AS parent FROM entities ORDER BY entity_type, name_en;", desc: "City → Town → Landmark hierarchy" },
+  { name: "Data sources & provenance", sql: "SELECT source_id, source_name, source_type, validation FROM data_sources;", desc: "Where does the data come from?" },
+  { name: "Cross-district route search", sql: "SELECT DISTINCT r.route_number, r.name_en, r.operator FROM routes r JOIN route_stops rs1 ON r.route_id = rs1.route_id JOIN route_stops rs2 ON r.route_id = rs2.route_id WHERE rs1.stop_id = 'kottayam' AND rs2.stop_id = 'alappuzha';", desc: "Find direct routes between two districts" },
+];
+
+const TABLE_SCHEMA = [
+  { name: "stops", cols: [
+    { name: "stop_id", type: "TEXT", pk: true }, { name: "name_en", type: "TEXT" },
+    { name: "name_ml", type: "TEXT" }, { name: "name_hi", type: "TEXT" },
+    { name: "latitude", type: "REAL" }, { name: "longitude", type: "REAL" },
+    { name: "landmark_en", type: "TEXT" }, { name: "landmark_ml", type: "TEXT" }, { name: "landmark_hi", type: "TEXT" }
+  ]},
+  { name: "routes", cols: [
+    { name: "route_id", type: "TEXT", pk: true }, { name: "route_number", type: "TEXT" },
+    { name: "name_en", type: "TEXT" }, { name: "name_ml", type: "TEXT" }, { name: "name_hi", type: "TEXT" },
+    { name: "route_type", type: "TEXT" }, { name: "operator", type: "TEXT" }, { name: "frequency_mins", type: "INT" }
+  ]},
+  { name: "route_stops", cols: [
+    { name: "id", type: "INT", pk: true }, { name: "route_id", type: "TEXT", fk: "routes" },
+    { name: "stop_id", type: "TEXT", fk: "stops" }, { name: "stop_sequence", type: "INT" }, { name: "distance_km", type: "REAL" }
+  ]},
+  { name: "fare_stages", cols: [
+    { name: "id", type: "INT", pk: true }, { name: "route_id", type: "TEXT", fk: "routes" },
+    { name: "from_stop", type: "TEXT" }, { name: "to_stop", type: "TEXT" },
+    { name: "stages", type: "INT" }, { name: "fare_min", type: "REAL" }, { name: "fare_max", type: "REAL" }
+  ]},
+  { name: "aliases", cols: [
+    { name: "id", type: "INT", pk: true }, { name: "alias_text", type: "TEXT" },
+    { name: "stop_id", type: "TEXT", fk: "stops" }, { name: "language", type: "TEXT" }
+  ]},
+  { name: "entities", cols: [
+    { name: "entity_id", type: "TEXT", pk: true }, { name: "name_en", type: "TEXT" },
+    { name: "name_ml", type: "TEXT" }, { name: "name_hi", type: "TEXT" },
+    { name: "entity_type", type: "TEXT" }, { name: "latitude", type: "REAL" }, { name: "longitude", type: "REAL" },
+    { name: "district", type: "TEXT" }, { name: "mapped_stop_id", type: "TEXT", fk: "stops" }
+  ]},
+  { name: "data_sources", cols: [
+    { name: "source_id", type: "TEXT", pk: true }, { name: "source_name", type: "TEXT" },
+    { name: "source_type", type: "TEXT" }, { name: "url", type: "TEXT" },
+    { name: "version", type: "TEXT" }, { name: "collected_at", type: "TEXT" }, { name: "validation", type: "TEXT" }
+  ]}
+];
+
+function renderSchema() {
+  const grid = document.getElementById('tableGrid');
+  for (const t of TABLE_SCHEMA) {
+    let colsHtml = t.cols.map(c => {
+      const icon = c.pk ? '<span class="col-icon pk">🔑</span>' : c.fk ? '<span class="col-icon fk">🔗</span>' : '<span class="col-icon">·</span>';
+      return `<div class="col-row">${icon}<span class="col-name ${c.pk?'pk':''} ${c.fk?'fk':''}">${c.name}</span><span class="col-type">${c.type}${c.fk?' → '+c.fk:''}</span></div>`;
+    }).join('');
+    grid.innerHTML += `<div class="table-card"><div class="tc-head"><span class="tc-name">${t.name}</span><span class="tc-count" id="tc_${t.name}">—</span></div><div class="tc-body">${colsHtml}</div></div>`;
+  }
+}
+
+function renderPresets() {
+  const grid = document.getElementById('presetGrid');
+  for (const p of PRESETS) {
+    const btn = document.createElement('button');
+    btn.className = 'preset-btn';
+    btn.innerHTML = `<strong>${p.name}</strong><span>${p.desc}</span>`;
+    btn.onclick = () => {
+      document.getElementById('queryInput').value = p.sql;
+      runQuery();
+    };
+    grid.appendChild(btn);
+  }
+}
+
+function runQuery() {
+  const sql = document.getElementById('queryInput').value.trim();
+  const box = document.getElementById('resultsBox');
+  if (!sql) return;
+  if (!db) { box.innerHTML = '<div class="error-msg">Database not loaded yet. Please wait...</div>'; return; }
+
+  try {
+    const start = performance.now();
+    const results = db.exec(sql);
+    const elapsed = (performance.now() - start).toFixed(2);
+
+    if (!results.length) {
+      box.innerHTML = `<div class="results-info">Query executed successfully. No rows returned. (${elapsed}ms)</div>`;
+      return;
+    }
+
+    const r = results[0];
+    let html = '<table class="results-table"><thead><tr>';
+    for (const col of r.columns) html += `<th>${col}</th>`;
+    html += '</tr></thead><tbody>';
+    for (const row of r.values) {
+      html += '<tr>';
+      for (const val of row) html += `<td>${val === null ? '<em style="color:#aaa">NULL</em>' : val}</td>`;
+      html += '</tr>';
+    }
+    html += '</tbody></table>';
+    html += `<div class="results-info">${r.values.length} row(s) returned in ${elapsed}ms</div>`;
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div class="error-msg">❌ SQL Error: ${e.message}</div>`;
+  }
+}
+
+async function loadDatabase() {
+  try {
+    const sqlPromise = initSqlJs({
+      locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${file}`
+    });
+
+    const [SQL, buf] = await Promise.all([
+      sqlPromise,
+      fetch('data/anavandi.db').then(r => r.arrayBuffer())
+    ]);
+
+    db = new SQL.Database(new Uint8Array(buf));
+
+    // Update stats
+    const tables = { stops: 'sStops', routes: 'sRoutes', route_stops: 'sRouteStops', fare_stages: 'sFares', aliases: 'sAliases', entities: 'sEntities' };
+    for (const [table, elId] of Object.entries(tables)) {
+      try {
+        const res = db.exec(`SELECT COUNT(*) FROM ${table}`);
+        const count = res[0].values[0][0];
+        document.getElementById(elId).textContent = count;
+        const tc = document.getElementById(`tc_${table}`);
+        if (tc) tc.textContent = `${count} rows`;
+      } catch (e) { console.warn(e); }
+    }
+
+    // Auto-run default query
+    runQuery();
+  } catch (e) {
+    console.error('Failed to load database:', e);
+    document.getElementById('resultsBox').innerHTML = `<div class="error-msg">Failed to load database: ${e.message}. Make sure data/anavandi.db exists.</div>`;
+  }
+}
+
+// Keyboard shortcut
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    e.preventDefault();
+    runQuery();
+  }
+});
+
+// Init
+renderSchema();
+renderPresets();
+window.addEventListener('load', loadDatabase);
+</script>
+</body>
+</html>
