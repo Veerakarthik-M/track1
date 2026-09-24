@@ -33,6 +33,23 @@
   --font: 'Inter', 'Noto Sans Malayalam', 'Noto Sans Devanagari', sans-serif;
 }
 
+/* ─── Dark Theme Variables ────────────────────────────────────────────── */
+body.dark-theme {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface2: #334155;
+  --border: #334155;
+  --text1: #f8fafc;
+  --text2: #cbd5e1;
+  --text3: #94a3b8;
+  --accent: #38bdf8;
+  --accent-bg: #0369a1;
+  --accent-hover: #7dd3fc;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.5);
+  --shadow: 0 4px 16px rgba(0,0,0,.6);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.7);
+}
+
 body {
   font-family: var(--font);
   background-color: var(--bg);

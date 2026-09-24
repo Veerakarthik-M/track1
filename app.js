@@ -1721,8 +1721,19 @@ const UI = (() => {
       $('largeTxtBtn').classList.toggle('active');
     });
 
-    // Dark/Light mode removed for branding
-
+    // Theme toggle
+    const savedTheme = localStorage.getItem('anavandi-theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      if ($('themeToggleBtn')) $('themeToggleBtn').textContent = '☀️';
+    }
+    
+    $('themeToggleBtn')?.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      localStorage.setItem('anavandi-theme', isDark ? 'dark' : 'light');
+      $('themeToggleBtn').textContent = isDark ? '☀️' : '🌙';
+    });
     // GPS
     $('gpsBtn').addEventListener('click', handleGPS);
 
