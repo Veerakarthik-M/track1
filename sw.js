@@ -1,10 +1,11 @@
-const CACHE_NAME = 'anavandi-v5';
+const CACHE_NAME = 'anavandi-v6';
 
 const ASSETS = [
   './', './index.html', './style.css', './app.js', './manifest.json',
   './data/stops.json', './data/routes.json', './data/fare_stages.json',
   './data/aliases.json', './data/entities.json', './data/sample_queries.json',
   './data/dataset_meta.json', './assets/bg.jpg',
+  './database.html', './data/anavandi.db', './assets/sql-wasm.js', './assets/sql-wasm.wasm',
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap',
 ];
 

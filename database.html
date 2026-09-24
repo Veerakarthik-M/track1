@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>ANAVANDI — Database Explorer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<script src="assets/sql-wasm.js"></script>
 <style>
   :root{--navy:#1864ab;--navy-dark:#0f4c81;--red:#c92a2a;--white:#fff;--bg:#f0f4f8;--surface:#fff;--border:#cddbec;--text1:#102a43;--text2:#334e68;--text3:#829ab1;--green:#2f9e44;--amber:#f59f00;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -314,7 +314,7 @@ function runQuery() {
 async function loadDatabase() {
   try {
     const sqlPromise = initSqlJs({
-      locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${file}`
+      locateFile: file => `assets/${file}`
     });
 
     const [SQL, buf] = await Promise.all([
